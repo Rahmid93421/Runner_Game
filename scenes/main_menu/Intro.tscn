@@ -1,0 +1,108 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/main_menu/Intro.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:custom_fonts/normal_font:outline_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:custom_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:bbcode_text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "[center]NOW LOADING...[/center]" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "StartIntro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:custom_colors/default_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.3, 2, 3, 4, 5, 6, 7, 8, 9, 10 ),
+"transitions": PoolRealArray( 1, 6.9644, 1, 1, 1, 1, 1, 1, 1, 6.9644, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.741176, 0.72549, 0.72549, 1 ), Color( 0, 0, 0, 1 ), Color( 0.741176, 0.72549, 0.72549, 1 ), Color( 0.2, 0.2, 0.2, 1 ), Color( 0.741176, 0.72549, 0.72549, 1 ), Color( 0.2, 0.2, 0.2, 1 ), Color( 0.741176, 0.72549, 0.72549, 1 ), Color( 0.2, 0.2, 0.2, 1 ), Color( 0.741176, 0.72549, 0.72549, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title:bbcode_text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "[center]ODDO GAMES[/center]", "[center]NOW LOADING...[/center]" ]
+}
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.012
+anchor_top = 0.458
+anchor_right = 0.992
+anchor_bottom = 0.564
+margin_left = 0.36
+margin_top = -0.240051
+margin_right = -0.240051
+margin_bottom = 0.0799561
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]NOW LOADING...[/center]"
+text = "NOW LOADING..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "StartIntro"
+anims/RESET = SubResource( 2 )
+anims/StartIntro = SubResource( 3 )
+
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
