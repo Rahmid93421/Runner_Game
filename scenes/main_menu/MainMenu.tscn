@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/main_menu/3d_maps/MapGeneration.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_menu/Camera_Movement.gd" type="Script" id=2]
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.368627 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Title:custom_colors/default_color")
@@ -32,6 +32,93 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 0.913725, 0.341176, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel:margin_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel:margin_top")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Panel:margin_right")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel:margin_bottom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "OutroMenu"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -72,14 +159,74 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 150, 625.6 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel:margin_left")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Panel:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel:margin_right")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Panel:margin_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 1, 0.913725, 0.341176, 0.686275 )
+bg_color = Color( 0, 0, 0, 0.686275 )
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color( 1, 0.643137, 0.160784, 1 )
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
 corner_radius_top_left = 35
 corner_radius_top_right = 35
 corner_radius_bottom_right = 35
@@ -102,10 +249,10 @@ script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.368627 )
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer"]
 anchor_left = 0.033
@@ -141,16 +288,15 @@ text = "endless castle dash"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 autoplay = "IntroMenu"
 anims/IntroMenu = SubResource( 1 )
+anims/OutroMenu = SubResource( 8 )
 anims/RESET = SubResource( 2 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchor_left = 0.167
-anchor_top = 0.391
+anchor_top = 0.425
 anchor_right = 0.833
-anchor_bottom = 0.65
-margin_left = -0.300003
-margin_right = 0.300171
-margin_bottom = -0.399902
+anchor_bottom = 0.684
+rect_pivot_offset = Vector2( 303, 205 )
 custom_styles/panel = SubResource( 5 )
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
@@ -158,15 +304,21 @@ anchor_left = 0.083
 anchor_top = 0.379
 anchor_right = 0.917
 anchor_bottom = 0.621
-margin_left = 0.199997
-margin_top = 0.0940094
-margin_right = -0.200012
-margin_bottom = -0.0940247
+margin_left = 0.199986
+margin_top = -6.90605
+margin_right = -0.200195
+margin_bottom = -7.09409
 custom_fonts/font = SubResource( 7 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/normal = ExtResource( 6 )
-text = "GUEST PLAY"
+text = "PLAY"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="MapGeneration" parent="." instance=ExtResource( 1 )]
 
@@ -183,4 +335,5 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20077, -0.564382 )
 shape = SubResource( 3 )
 
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]
