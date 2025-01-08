@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/main_menu/3d_maps/MapGeneration.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_menu/Camera_Movement.gd" type="Script" id=2]
-[ext_resource path="res://scripts/main_menu/3d_maps/MapGeneration.gd" type="Script" id=3]
+[ext_resource path="res://scripts/main_menu/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/misc/fonts/font_resource.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/button_resource.tres" type="StyleBox" id=6]
@@ -255,14 +255,14 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.368627 )
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer"]
-anchor_left = 0.033
-anchor_top = 0.051
-anchor_right = 0.967
-anchor_bottom = 0.301
-margin_left = 0.299999
-margin_top = -0.600006
+anchor_left = 0.073
+anchor_top = 0.104
+anchor_right = 0.927
+anchor_bottom = 0.104
+margin_left = 0.299995
+margin_top = 0.599991
 margin_right = -0.300049
-margin_bottom = -0.600037
+margin_bottom = 314.6
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = ExtResource( 5 )
 bbcode_enabled = true
@@ -292,22 +292,22 @@ anims/OutroMenu = SubResource( 8 )
 anims/RESET = SubResource( 2 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
-anchor_left = 0.167
-anchor_top = 0.425
-anchor_right = 0.833
-anchor_bottom = 0.684
+anchor_left = 0.22
+anchor_top = 0.399
+anchor_right = 0.78
+anchor_bottom = 0.628
 rect_pivot_offset = Vector2( 303, 205 )
 custom_styles/panel = SubResource( 5 )
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.083
-anchor_top = 0.379
+anchor_top = 0.352
 anchor_right = 0.917
 anchor_bottom = 0.621
 margin_left = 0.199986
-margin_top = -6.90605
-margin_right = -0.200195
-margin_bottom = -7.09409
+margin_top = -0.0132141
+margin_right = -0.200226
+margin_bottom = -0.0228119
 custom_fonts/font = SubResource( 7 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 6 )
@@ -336,4 +336,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20077, -0.564382 )
 shape = SubResource( 3 )
 
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]
