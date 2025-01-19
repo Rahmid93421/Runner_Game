@@ -5,13 +5,26 @@ onready var animationNode = $UserInterface/AnimationPlayer
 onready var parentNode = get_parent()
 onready var characterNode = $Environment/character_animations
 onready var characterNodeAnim = $Environment/character_animations/AnimationPlayer
+onready var shopNodeAnimPlayer = $UserInterface/ShopPanel/CanvasLayer/AnimationPlayer
+onready var userNameLabel = $UserInterface/Panel/Username
+onready var coinsLabel = $UserInterface/Panel/Currency
+onready var energyLabel = $UserInterface/Panel/Panel/Energy
+onready var inventoryNodeAnim = $UserInterface/Inventory/CanvasLayer/AnimationPlayer
 
 var actionPressed = null
 
 func _ready():
+	parentNode = get_parent()
 	idleNode.get_animation("Root|Root|Root|mixamocom|Layer0").loop = true
 	idleNode.play("Root|Root|Root|mixamocom|Layer0")
 	
+	userNameLabel.bbcode_text = "[center] Welcome back,\n" + parentNode._getUserName() + "[/center]"
+	coinsLabel.bbcode_text = "[center] COINS\n" + str(parentNode._getCoins()) + "[/center]"
+	energyLabel.bbcode_text = "[center] ENERGY\n" + str(parentNode._getEnergy()) + "/5[/center]"
+
+func _getInventory():
+	return get_parent()._getInventory()
+
 func _on_Play_pressed():
 	actionPressed = "play"
 	animationNode.play("OutroAnim")
@@ -31,3 +44,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			"play":
 				parentNode._load_game()
 		self.queue_free()
+
+func _on_Shop_pressed():
+	shopNodeAnimPlayer.play("FadIn")
+	
+func _on_Inventory_pressed():
+	inventoryNodeAnim.play("FadIn")

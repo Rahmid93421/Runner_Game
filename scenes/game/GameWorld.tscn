@@ -38,7 +38,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -25.502, -145, -16.361 ), Vector3( -30, -180, 1.46904e-13 ) ]
+"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -25.502, -130, -16.361 ), Vector3( -30, -180, 1.46904e-13 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -66,7 +66,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -25.502, -145, -16.361 ), Vector3( -30, -180, 1.46904e-13 ) ]
+"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -25.502, -130, -16.361 ), Vector3( -30, -180, 1.46904e-13 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -94,7 +94,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -30, 180, 0 ), Vector3( -25.494, 145, 16.374 ), Vector3( -30, 180, 0 ) ]
+"values": [ Vector3( -30, 180, 0 ), Vector3( -25.494, 130, 16.374 ), Vector3( -30, 180, 0 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -122,7 +122,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -30, 180, 0 ), Vector3( -25.494, 145, 16.374 ), Vector3( -30, 180, 0 ) ]
+"values": [ Vector3( -30, 180, 0 ), Vector3( -25.494, 130, 16.374 ), Vector3( -30, 180, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -369,7 +369,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -24.9911, -143.837, -17.1601 ), Vector3( -30, -180, 1.46904e-13 ) ]
+"values": [ Vector3( -30, -180, 1.46904e-13 ), Vector3( -24.991, -130, -17.16 ), Vector3( -30, -180, 1.46904e-13 ) ]
 }
 
 [sub_resource type="Animation" id=11]

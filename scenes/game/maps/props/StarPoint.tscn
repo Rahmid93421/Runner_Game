@@ -42,12 +42,11 @@ extents = Vector3( 0.891968, 0.843178, 0.564741 )
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Rotation"
 anims/RESET = SubResource( 2 )
 anims/Rotation = SubResource( 3 )
 
 [node name="coin" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.25, 0 )
+transform = Transform( 0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.249, 0 )
 
 [node name="Area" type="Area" parent="coin"]
 

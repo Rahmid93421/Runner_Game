@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/main_menu/PlayerPlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/player/new/idle.glb" type="PackedScene" id=2]
@@ -10,6 +10,19 @@
 [ext_resource path="res://assets/sprites/main_menu/gear.png" type="Texture" id=8]
 [ext_resource path="res://assets/models/env/gate.glb" type="PackedScene" id=9]
 [ext_resource path="res://assets/models/player/updated_model/character_animations.glb" type="PackedScene" id=10]
+[ext_resource path="res://assets/misc/username_coins_panel.tres" type="StyleBox" id=11]
+[ext_resource path="res://assets/sprites/main_menu/plus4.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/main_menu/inventory.png" type="Texture" id=13]
+[ext_resource path="res://scenes/main_menu/ShopPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/main_menu/Inventory.tscn" type="PackedScene" id=15]
+
+[sub_resource type="DynamicFont" id=13]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.117647, 0.117647, 0.117647, 0 )
@@ -23,20 +36,6 @@ corner_radius_top_right = 35
 corner_radius_bottom_right = 35
 corner_radius_bottom_left = 35
 
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0, 0, 0, 0.392157 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
-corner_radius_top_left = 35
-corner_radius_top_right = 35
-corner_radius_bottom_right = 35
-corner_radius_bottom_left = 35
-shadow_color = Color( 0, 0, 0, 0.780392 )
-shadow_size = 3
-
 [sub_resource type="DynamicFont" id=5]
 size = 38
 outline_size = 5
@@ -44,6 +43,57 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "ButtonRotate"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Button:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.12, 0.12 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "IntroAnim"
@@ -220,7 +270,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 50.0, -200.0 ]
+"values": [ 50.0, -400 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Panel:margin_bottom")
@@ -232,7 +282,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 200.0, -100.0 ]
+"values": [ 200.0, -300 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Panel2:margin_bottom")
@@ -257,6 +307,54 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RichTextLabel:margin_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 116.4, 616.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("RichTextLabel:margin_right")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0999756 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("RichTextLabel:margin_top")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.399902, 500.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("RichTextLabel:margin_left")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.299988 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -417,6 +515,54 @@ tracks/12/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("RichTextLabel:margin_bottom")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 116.4 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("RichTextLabel:margin_right")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0999756 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("RichTextLabel:margin_top")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.399902 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("RichTextLabel:margin_left")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.299988 ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "RealOutro"
@@ -471,10 +617,6 @@ projection = 1
 current = true
 size = 3.0
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Environment"]
-transform = Transform( 0.860209, 0.295792, -0.41539, 0, 0.814582, 0.580049, 0.509943, -0.498963, 0.70071, 0, 8.11784, 0 )
-light_energy = 0.2
-
 [node name="idle2" parent="Environment" instance=ExtResource( 2 )]
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.45, 0.17, -0.44 )
 
@@ -485,7 +627,31 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.447, 
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.45, 0.17, -0.44 )
 visible = false
 
+[node name="DirectionalLight2" type="DirectionalLight" parent="Environment"]
+transform = Transform( -0.642788, -0.586824, 0.492404, 0, 0.642788, 0.766044, -0.766044, 0.492404, -0.413176, 0, 0, 0 )
+light_energy = 0.22
+light_bake_mode = 2
+light_cull_mask = 4294966273
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
 [node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UserInterface"]
+anchor_left = 0.304
+anchor_top = 0.78
+anchor_right = 0.696
+anchor_bottom = 0.78
+margin_left = 0.299988
+margin_top = 0.399902
+margin_right = 0.0999756
+margin_bottom = 116.4
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]POWER LEVEL
+0[/center]"
+text = "POWER LEVEL
+0"
 
 [node name="ColorRect" type="ColorRect" parent="UserInterface"]
 anchor_right = 1.0
@@ -530,14 +696,28 @@ custom_styles/normal = ExtResource( 5 )
 icon = ExtResource( 6 )
 icon_align = 1
 
-[node name="Settings" type="Button" parent="UserInterface/Panel2"]
+[node name="Inventory" type="Button" parent="UserInterface/Panel2"]
 anchor_left = 0.372
 anchor_top = 0.664
-anchor_right = 0.83
+anchor_right = 0.831
 anchor_bottom = 0.875
 margin_left = -0.0304031
-margin_top = -0.192017
-margin_right = 409.223
+margin_top = -0.191956
+margin_right = 409.521
+margin_bottom = 423.0
+rect_scale = Vector2( 0.2, 0.2 )
+custom_styles/normal = ExtResource( 5 )
+icon = ExtResource( 13 )
+icon_align = 1
+
+[node name="Settings" type="Button" parent="UserInterface/Panel2"]
+anchor_left = 0.372
+anchor_top = 0.944
+anchor_right = 0.831
+anchor_bottom = 1.155
+margin_left = -0.0304031
+margin_top = -0.191956
+margin_right = 409.521
 margin_bottom = 423.0
 rect_scale = Vector2( 0.2, 0.2 )
 custom_styles/normal = ExtResource( 5 )
@@ -553,7 +733,28 @@ margin_left = -0.200001
 margin_top = 50.0
 margin_right = 0.199951
 margin_bottom = 200.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = ExtResource( 11 )
+
+[node name="ColorRect" type="ColorRect" parent="UserInterface/Panel"]
+anchor_left = 0.652
+anchor_top = 0.967
+anchor_right = 0.678
+anchor_bottom = 0.967
+margin_left = -0.199951
+margin_top = -0.0500031
+margin_right = -0.299988
+margin_bottom = 42.95
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="UserInterface/Panel"]
+anchor_left = 0.929
+anchor_top = 0.98
+anchor_right = 0.955
+anchor_bottom = 0.98
+margin_left = 0.350037
+margin_right = 0.25
+margin_bottom = 41.0
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
 
 [node name="Username" type="RichTextLabel" parent="UserInterface/Panel"]
 anchor_left = 0.185
@@ -569,7 +770,7 @@ bbcode_enabled = true
 bbcode_text = "[center]WELCOME BACK, USER[/center]"
 text = "WELCOME BACK, USER"
 
-[node name="Username2" type="RichTextLabel" parent="UserInterface/Panel"]
+[node name="Currency" type="RichTextLabel" parent="UserInterface/Panel"]
 anchor_left = 0.812
 anchor_top = 0.5
 anchor_right = 0.812
@@ -580,8 +781,61 @@ margin_right = 129.8
 margin_bottom = 64.0
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center]CURRENT COINS 999999[/center]"
-text = "CURRENT COINS 999999"
+bbcode_text = "[center]COINS
+ 999999[/center]"
+text = "COINS
+ 999999"
+
+[node name="Panel" type="Panel" parent="UserInterface/Panel"]
+anchor_left = 0.582
+anchor_top = 1.227
+anchor_right = 0.995
+anchor_bottom = 1.227
+margin_left = 0.300018
+margin_top = -0.0500183
+margin_right = 0.25
+margin_bottom = 104.95
+custom_styles/panel = ExtResource( 11 )
+
+[node name="Energy" type="RichTextLabel" parent="UserInterface/Panel/Panel"]
+anchor_left = 0.308
+anchor_top = 0.143
+anchor_right = 0.709
+anchor_bottom = 0.143
+margin_left = -0.108009
+margin_top = -0.0150003
+margin_right = 0.140976
+margin_bottom = 79.985
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]ENERGY
+5/5
+[/center]"
+text = "ENERGY
+5/5
+"
+scroll_active = false
+
+[node name="Button" type="Button" parent="UserInterface/Panel/Panel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.224
+anchor_right = 0.796
+anchor_bottom = 0.224
+margin_left = -462.5
+margin_top = -464.12
+margin_right = 469.604
+margin_bottom = 565.88
+rect_scale = Vector2( 0.12, 0.12 )
+rect_pivot_offset = Vector2( 520, 509.999 )
+icon = ExtResource( 12 )
+flat = true
+icon_align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface/Panel/Panel"]
+autoplay = "ButtonRotate"
+anims/ButtonRotate = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface"]
 autoplay = "IntroAnim"
@@ -591,5 +845,11 @@ anims/OutroAnim = SubResource( 7 )
 anims/RESET = SubResource( 2 )
 anims/RealOutro = SubResource( 9 )
 
+[node name="ShopPanel" parent="UserInterface" instance=ExtResource( 14 )]
+
+[node name="Inventory" parent="UserInterface" instance=ExtResource( 15 )]
+
 [connection signal="pressed" from="UserInterface/Panel2/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="UserInterface/Panel2/Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="UserInterface/Panel2/Inventory" to="." method="_on_Inventory_pressed"]
 [connection signal="animation_finished" from="UserInterface/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

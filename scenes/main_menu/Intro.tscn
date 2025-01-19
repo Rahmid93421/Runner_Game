@@ -72,7 +72,8 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "[center]ODDO GAMES[/center]", "[center]NOW LOADING...[/center]" ]
+"values": [ "[center]THEGAMEHUB
+GAMES[/center]", "[center]NOW LOADING...[/center]" ]
 }
 
 [node name="Intro" type="Node2D"]
