@@ -15,8 +15,8 @@ onready var texturesItems = {
 }
 
 var itemsNames = {
-	"toolcrate": "[center]Tool Crate\n1000 coins[/center]",
-	"energybottle": "[center]Energy Bottle (+5 energy)\n300 coins[/center]"
+	"toolcrate": "[center]Tool Crate[/center]",
+	"energybottle": "[center]Energy Bottle (+5 energy)[/center]"
 }
 
 onready var items = {
@@ -66,6 +66,3 @@ func _on_AnimationPlayer_animation_started(anim_name):
 func _on_buy_pressed():
 	parentNode.infoPanelActive = false
 	parentNode._addToInventory(item)
-
-func _on_Button_pressed():
-	pass # Replace with function body.

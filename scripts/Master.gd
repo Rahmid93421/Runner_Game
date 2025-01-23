@@ -12,7 +12,7 @@ var dataDict = {
 	1: 0, # real coins
 	2: "Unnamed", # username
 	5: "coins: 0", # fake coins value
-	3: {"toolbox": 10, "skincrate": 10, "trapcrate": 10, "energybottle": 10, "skins": [] }, # inventory
+	3: {"toolcrate": 0, "skincrate": 0, "trapcrate": 0, "energybottle": 0, "skins": [], "weapons": [] }, # inventory, weapons: [["name", "durability", "value"]]
 	4: 0, # powerlevel
 	6: "skins: {}", # fake skins value
 	8: 5
@@ -38,7 +38,7 @@ func _saveToFile():
 	file.store_var(dataDict);
 	file.close();
 	
-func _saveToInventory(identifier, value):
+func _saveToInventory(_identifier, _value):
 	pass
 
 func _saveUserName(username):
@@ -62,12 +62,17 @@ func _getEnergy():
 	
 func _energyDecrease():
 	dataDict[8] -= 1
+	_saveToFile()
 
 func _checkEnergy():
 	return dataDict[8]
 	
 func _getInventory():
 	return dataDict[3]
+	
+func _incrementInventoryItem(item):
+	dataDict[3][item] += 1
+	_saveToFile()
 
 func _intro_finished():
 	_load_main_menu()

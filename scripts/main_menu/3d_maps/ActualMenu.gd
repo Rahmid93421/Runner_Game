@@ -50,3 +50,6 @@ func _on_Shop_pressed():
 	
 func _on_Inventory_pressed():
 	inventoryNodeAnim.play("FadIn")
+	
+func _addToInventory(item):
+	parentNode._incrementInventoryItem(item)

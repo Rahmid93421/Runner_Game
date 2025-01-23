@@ -33,3 +33,7 @@ func _on_Item4_mouse_entered():
 	infoPanel.item = "trapcrate"
 	infoPanelAnim.play("GetBig")
 	infoPanelActive = true
+	
+func _addToInventory(item):
+	parentNode._addToInventory(item)
+	$CanvasLayer/Panel/InfoPanel/AnimationPlayer.play("GetSmall")
