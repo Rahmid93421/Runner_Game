@@ -6,6 +6,8 @@ onready var textureRect = $TextureRect
 onready var panels = $Control
 onready var itemName = $RichTextLabel
 onready var parentNode = get_parent().get_parent().get_parent()
+onready var animationPlayer = $AnimationPlayer
+onready var rollBar = $Control2
 
 onready var texturesItems = {
 	"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
@@ -68,4 +70,11 @@ func _on_buy_pressed():
 	parentNode._addToInventory(item)
 
 func _on_Button_pressed():
-	pass # Replace with function body.
+	animationPlayer.play("OpenCaseo")
+	
+func _playResetOpenCaseo():
+	animationPlayer.play("RevertOpenCaseo")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "OpenCaseo"):
+		rollBar._rollTheBar()

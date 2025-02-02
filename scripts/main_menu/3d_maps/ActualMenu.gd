@@ -10,13 +10,22 @@ onready var userNameLabel = $UserInterface/Panel/Username
 onready var coinsLabel = $UserInterface/Panel/Currency
 onready var energyLabel = $UserInterface/Panel/Panel/Energy
 onready var inventoryNodeAnim = $UserInterface/Inventory/CanvasLayer/AnimationPlayer
+onready var moreEnergyButton = $UserInterface/Panel/Panel/Button
 
 var actionPressed = null
+var energyAvailable = null
 
 func _ready():
 	parentNode = get_parent()
 	idleNode.get_animation("Root|Root|Root|mixamocom|Layer0").loop = true
 	idleNode.play("Root|Root|Root|mixamocom|Layer0")
+	
+	energyAvailable = parentNode._getEnergy()
+	
+	if(energyAvailable < 5):
+		moreEnergyButton.visible = true
+	else:
+		moreEnergyButton.hide()
 	
 	userNameLabel.bbcode_text = "[center] Welcome back,\n" + parentNode._getUserName() + "[/center]"
 	coinsLabel.bbcode_text = "[center] COINS\n" + str(parentNode._getCoins()) + "[/center]"
