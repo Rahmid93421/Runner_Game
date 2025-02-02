@@ -43,3 +43,6 @@ func _on_Item4_mouse_entered():
 func _addToInventory(item):
 	parentNode._addToInventory(item)
 	$CanvasLayer/Panel/InfoPanel/AnimationPlayer.play("GetSmall")
+
+func _saveOpenedItem(item):
+	parentNode._saveOpenedItem(item)

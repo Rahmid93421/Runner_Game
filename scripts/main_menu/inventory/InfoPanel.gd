@@ -11,12 +11,26 @@ onready var texturesItems = {
 	"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
 	"skincrate": preload("res://assets/sprites/shop/items/skin_crate.png"),
 	"energybottle": preload("res://assets/sprites/shop/items/energy_bottle.png"),
-	"trapcrate": preload("res://assets/sprites/shop/items/trap_crate.png")
+	"trapcrate": preload("res://assets/sprites/shop/items/trap_crate.png"),
+	"8L4573R": preload("res://assets/sprites/shop/guns/blasterG.png"),
+	"8L4572R": preload("res://assets/sprites/shop/guns/blasterH.png"),
+	"8L4571R": preload("res://assets/sprites/shop/guns/blasterQ.png"),
+	"8L4570R": preload("res://assets/sprites/shop/guns/blasterA.png"),
+	"8L4574R": preload("res://assets/sprites/shop/guns/blasterB.png"),
+	"8L4575R": preload("res://assets/sprites/shop/guns/blasterC.png"),
+	"8L4576R": preload("res://assets/sprites/shop/guns/blasterD.png")
 }
 
 var itemsNames = {
 	"toolcrate": "[center]Tool Crate[/center]",
-	"energybottle": "[center]Energy Bottle (+5 energy)[/center]"
+	"energybottle": "[center]Energy Bottle (+5 energy)[/center]",
+	"8L4573R": "[center]8L4573R[/center]",
+	"8L4572R": "[center]8L4572R[/center]",
+	"8L4571R": "[center]8L4571R[/center]",
+	"8L4570R": "[center]8L4570R[/center]",
+	"8L4574R": "[center]8L4574R[/center]",
+	"8L4575R": "[center]8L4575R[/center]",
+	"8L4576R": "[center]8L4576R[/center]"
 }
 
 onready var items = {
@@ -31,7 +45,14 @@ onready var items = {
 	],
 	"skincrate": [],
 	"energybottle": [],
-	"trapcrate": []
+	"trapcrate": [],
+	"8L4573R": [],
+	"8L4572R": [],
+	"8L4571R": [],
+	"8L4570R": [],
+	"8L4574R": [],
+	"8L4575R": [],
+	"8L4576R": []
 }
 
 var panelsChildren

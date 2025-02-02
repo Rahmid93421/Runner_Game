@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/misc/username_coins_panel.tres" type="StyleBox" id=2]
@@ -20,7 +20,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=45]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 10
 border_width_top = 10
@@ -49,6 +49,118 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
 
 [sub_resource type="DynamicFont" id=8]
 size = 48
@@ -775,7 +887,7 @@ anchor_bottom = 0.409
 margin_top = -0.400024
 margin_right = -0.180267
 margin_bottom = -0.400146
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 45 )
 script = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#1"]
@@ -826,7 +938,7 @@ margin_left = 14.5791
 margin_top = -0.400024
 margin_right = 15.2547
 margin_bottom = -0.400146
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 46 )
 script = ExtResource( 9 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#2"]
@@ -877,7 +989,7 @@ margin_left = -0.0294189
 margin_top = -0.400024
 margin_right = -0.209717
 margin_bottom = -0.400146
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 47 )
 script = ExtResource( 10 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#3"]
@@ -926,7 +1038,7 @@ anchor_right = 0.333
 anchor_bottom = 0.63
 margin_right = -0.180267
 margin_bottom = -0.00012207
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 48 )
 script = ExtResource( 11 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#4"]
@@ -967,6 +1079,261 @@ custom_fonts/normal_font = SubResource( 16 )
 bbcode_enabled = true
 bbcode_text = "[center]x10[/center]"
 text = "x10"
+
+[node name="Item#5" type="Panel" parent="CanvasLayer/Panel/Items"]
+anchor_left = 0.07
+anchor_top = 0.219
+anchor_right = 0.333
+anchor_bottom = 0.409
+margin_left = 239.379
+margin_top = 221.0
+margin_right = 239.199
+margin_bottom = 221.0
+custom_styles/panel = SubResource( 49 )
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#5"]
+anchor_top = 0.615
+anchor_right = 0.968
+anchor_bottom = 0.615
+margin_left = 2.0
+margin_top = 15.15
+margin_right = 2.07199
+margin_bottom = 61.15
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[center]TOOL CRATE[/center]"
+text = "TOOL CRATE"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#5"]
+anchor_left = 0.698
+anchor_top = 0.363
+anchor_right = 0.698
+anchor_bottom = 0.363
+margin_left = -0.208191
+margin_top = 0.0300522
+margin_right = 56.7918
+margin_bottom = 46.0301
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]x10[/center]"
+text = "x10"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Items/Item#5"]
+anchor_left = 0.264
+anchor_top = 0.189
+anchor_right = 0.724
+anchor_bottom = 0.674
+margin_left = 0.106079
+margin_top = 0.0899582
+margin_right = -0.106888
+margin_bottom = -0.0600281
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Item#6" type="Panel" parent="CanvasLayer/Panel/Items"]
+anchor_left = 0.351
+anchor_top = 0.219
+anchor_right = 0.613
+anchor_bottom = 0.409
+margin_left = 251.971
+margin_top = 221.0
+margin_right = 252.647
+margin_bottom = 221.0
+custom_styles/panel = SubResource( 50 )
+script = ExtResource( 9 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#6"]
+anchor_top = 0.615
+anchor_right = 0.968
+anchor_bottom = 0.615
+margin_left = 2.0
+margin_top = 15.15
+margin_right = 2.07199
+margin_bottom = 61.15
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[center]TOOL CRATE[/center]"
+text = "TOOL CRATE"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Items/Item#6"]
+anchor_left = 0.264
+anchor_top = 0.189
+anchor_right = 0.724
+anchor_bottom = 0.674
+margin_left = 0.106079
+margin_top = 0.0899582
+margin_right = -0.106888
+margin_bottom = -0.0600281
+texture = ExtResource( 6 )
+expand = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#6"]
+anchor_left = 0.698
+anchor_top = 0.363
+anchor_right = 0.698
+anchor_bottom = 0.363
+margin_left = -0.208191
+margin_top = 0.0300522
+margin_right = 56.7918
+margin_bottom = 46.0301
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]x10[/center]"
+text = "x10"
+
+[node name="Item#7" type="Panel" parent="CanvasLayer/Panel/Items"]
+anchor_left = 0.666
+anchor_top = 0.219
+anchor_right = 0.929
+anchor_bottom = 0.409
+margin_left = -476.8
+margin_top = 437.6
+margin_right = -476.98
+margin_bottom = 437.6
+custom_styles/panel = SubResource( 51 )
+script = ExtResource( 10 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#7"]
+anchor_top = 0.615
+anchor_right = 0.968
+anchor_bottom = 0.615
+margin_left = 2.0
+margin_top = 15.15
+margin_right = 2.07199
+margin_bottom = 61.15
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[center]TOOL CRATE[/center]"
+text = "TOOL CRATE"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Items/Item#7"]
+anchor_left = 0.264
+anchor_top = 0.189
+anchor_right = 0.724
+anchor_bottom = 0.674
+margin_left = 0.106079
+margin_top = 0.0899582
+margin_right = -0.106888
+margin_bottom = -0.0600281
+texture = ExtResource( 6 )
+expand = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#7"]
+anchor_left = 0.698
+anchor_top = 0.363
+anchor_right = 0.698
+anchor_bottom = 0.363
+margin_left = -0.208191
+margin_top = 0.0300522
+margin_right = 56.7918
+margin_bottom = 46.0301
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]x10[/center]"
+text = "x10"
+
+[node name="Item#8" type="Panel" parent="CanvasLayer/Panel/Items"]
+anchor_left = 0.07
+anchor_top = 0.44
+anchor_right = 0.333
+anchor_bottom = 0.63
+margin_left = 239.379
+margin_top = 216.6
+margin_right = 239.199
+margin_bottom = 216.6
+custom_styles/panel = SubResource( 52 )
+script = ExtResource( 11 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#8"]
+anchor_top = 0.615
+anchor_right = 0.968
+anchor_bottom = 0.615
+margin_left = 2.0
+margin_top = 15.15
+margin_right = 2.07199
+margin_bottom = 61.15
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[center]TOOL CRATE[/center]"
+text = "TOOL CRATE"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Items/Item#8"]
+anchor_left = 0.264
+anchor_top = 0.189
+anchor_right = 0.724
+anchor_bottom = 0.674
+margin_left = 0.106079
+margin_top = 0.0899582
+margin_right = -0.106888
+margin_bottom = -0.0600281
+texture = ExtResource( 6 )
+expand = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#8"]
+anchor_left = 0.698
+anchor_top = 0.363
+anchor_right = 0.698
+anchor_bottom = 0.363
+margin_left = -0.208191
+margin_top = 0.0300522
+margin_right = 56.7918
+margin_bottom = 46.0301
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]x10[/center]"
+text = "x10"
+
+[node name="Item#9" type="Panel" parent="CanvasLayer/Panel/Items"]
+anchor_left = 0.07
+anchor_top = 0.219
+anchor_right = 0.333
+anchor_bottom = 0.409
+margin_left = 476.771
+margin_top = 437.6
+margin_right = 476.591
+margin_bottom = 437.6
+custom_styles/panel = SubResource( 53 )
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#9"]
+anchor_top = 0.615
+anchor_right = 0.968
+anchor_bottom = 0.615
+margin_left = 2.0
+margin_top = 15.15
+margin_right = 2.07199
+margin_bottom = 61.15
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[center]TOOL CRATE[/center]"
+text = "TOOL CRATE"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Panel/Items/Item#9"]
+anchor_left = 0.698
+anchor_top = 0.363
+anchor_right = 0.698
+anchor_bottom = 0.363
+margin_left = -0.208191
+margin_top = 0.0300522
+margin_right = 56.7918
+margin_bottom = 46.0301
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[center]x10[/center]"
+text = "x10"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Items/Item#9"]
+anchor_left = 0.264
+anchor_top = 0.189
+anchor_right = 0.724
+anchor_bottom = 0.674
+margin_left = 0.106079
+margin_top = 0.0899582
+margin_right = -0.106888
+margin_bottom = -0.0600281
+texture = ExtResource( 6 )
+expand = true
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel"]
 anchor_left = 0.313
@@ -1378,6 +1745,11 @@ anims/RESET = SubResource( 10 )
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#2" to="CanvasLayer/Panel/Items/Item#2" method="_on_Item_mouse_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#3" to="CanvasLayer/Panel/Items/Item#3" method="_on_Item_mouse_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#4" to="CanvasLayer/Panel/Items/Item#4" method="_on_Item_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#5" to="CanvasLayer/Panel/Items/Item#5" method="_on_Item_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#6" to="CanvasLayer/Panel/Items/Item#6" method="_on_Item_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#7" to="CanvasLayer/Panel/Items/Item#7" method="_on_Item_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#8" to="CanvasLayer/Panel/Items/Item#8" method="_on_Item_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#9" to="CanvasLayer/Panel/Items/Item#9" method="_on_Item_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="animation_started" from="CanvasLayer/Panel/InfoPanel/AnimationPlayer" to="CanvasLayer/Panel/InfoPanel" method="_on_AnimationPlayer_animation_started"]
 [connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button3" to="." method="_on_Button3_pressed"]

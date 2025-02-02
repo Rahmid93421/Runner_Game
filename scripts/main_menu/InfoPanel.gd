@@ -64,13 +64,19 @@ func _loadData():
 func _on_AnimationPlayer_animation_started(anim_name):
 	if(anim_name == "GetBig"):
 		_loadData()
+	if(anim_name == "OpenCaseo"):
+		rollBar.type = item
+		rollBar._setItemsSprites()
 
 func _on_buy_pressed():
 	parentNode.infoPanelActive = false
 	parentNode._addToInventory(item)
 
 func _on_Button_pressed():
-	animationPlayer.play("OpenCaseo")
+	if(item == "toolcrate"):
+		animationPlayer.play("OpenCaseo")
+	else:
+		animationPlayer.play("GetSmall")
 	
 func _playResetOpenCaseo():
 	animationPlayer.play("RevertOpenCaseo")

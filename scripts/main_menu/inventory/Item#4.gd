@@ -11,7 +11,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Item_mouse_entered():
-	print(item)
 	parentNode.infoPanelActive = true
 	infoPanel.item = item
 	animNodeInfoPanel.play("GetBig")

@@ -62,3 +62,9 @@ func _on_Inventory_pressed():
 	
 func _addToInventory(item):
 	parentNode._incrementInventoryItem(item)
+	
+func _saveOpenedItem(item):
+	parentNode._tollCrateOpenedItemSave(item)
+	
+func _getItemData2():
+	return get_parent()._getItemData()

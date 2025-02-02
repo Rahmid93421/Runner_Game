@@ -12,7 +12,21 @@ var dataDict = {
 	1: 0, # real coins
 	2: "Unnamed", # username
 	5: "coins: 0", # fake coins value
-	3: {"toolcrate": 0, "skincrate": 0, "trapcrate": 0, "energybottle": 0, "skins": [], "weapons": [] }, # inventory, weapons: [["name", "durability", "value"]]
+	3: {"toolcrate": 0, "skincrate": 0, "trapcrate": 0, "energybottle": 0 }, # inventory, weapons: [["name", "durability", "value"]]
+	20: {
+			"blasters": { 
+				"8L4573R": [0, 0, 0],
+				"8L4572R": [0, 0, 0],
+				"8L4571R": [0, 0, 0],
+				"8L4570R": [0, 0, 0],
+				"8L4574R": [0, 0, 0],
+				"8L4575R": [0, 0, 0],
+				"8L4576R": [0, 0, 0]
+			},
+			"skins": {
+				
+			}
+		},
 	4: 0, # powerlevel
 	6: "skins: {}", # fake skins value
 	8: 5
@@ -38,6 +52,13 @@ func _saveToFile():
 	file.store_var(dataDict);
 	file.close();
 	
+func _tollCrateOpenedItemSave(item):
+	dataDict[20]['blasters'][item][2] += 1
+	_saveToFile()
+	
+func _getItemData():
+	return dataDict[20]
+
 func _saveToInventory(_identifier, _value):
 	pass
 
