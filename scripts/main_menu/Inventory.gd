@@ -3,7 +3,6 @@ extends Node2D
 onready var parentNode = get_parent()
 onready var animNode = $CanvasLayer/AnimationPlayer
 onready var canvasNode = $CanvasLayer/Panel
-onready var baseItem = preload("res://scenes/main_menu/Item.tscn")
 onready var animNodeInfoPanel = $CanvasLayer/Panel/InfoPanel/AnimationPlayer
 onready var itemsNode = $CanvasLayer/Panel/Items
 onready var infoPanel = $CanvasLayer/Panel/InfoPanel
@@ -58,7 +57,7 @@ func _ready():
 		itemx.hide()
 	
 func _buildItems():
-	itemsNodeChildren = $CanvasLayer/Panel/Items.get_children()
+#	itemsNodeChildren = $CanvasLayer/Panel/Items.get_children()
 	item = 0
 	var texturesDict = {
 		"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),

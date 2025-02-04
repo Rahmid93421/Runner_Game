@@ -12,22 +12,8 @@
 [ext_resource path="res://assets/misc/item_rarity.tres" type="StyleBox" id=10]
 [ext_resource path="res://assets/button_resource.tres" type="StyleBox" id=11]
 [ext_resource path="res://scripts/main_menu/CrateRollBar.gd" type="Script" id=12]
-
-[sub_resource type="DynamicFont" id=2]
-size = 22
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=26]
-size = 28
-outline_size = 5
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 1 )
+[ext_resource path="res://assets/misc/fonts/DisabledLabel.tres" type="DynamicFont" id=13]
+[ext_resource path="res://assets/misc/fonts/ItemsLabel.tres" type="DynamicFont" id=14]
 
 [sub_resource type="StyleBoxFlat" id=25]
 bg_color = Color( 0, 0, 0, 1 )
@@ -1424,7 +1410,7 @@ margin_left = 2.0
 margin_top = 15.15
 margin_right = 2.07199
 margin_bottom = 61.15
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[center]TOOL CRATE[/center]"
 text = "TOOL CRATE"
@@ -1460,7 +1446,7 @@ margin_left = 2.0
 margin_top = 15.15
 margin_right = 2.07199
 margin_bottom = 61.15
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[center]SKIN CRATE[/center]"
 text = "SKIN CRATE"
@@ -1486,7 +1472,7 @@ margin_left = -106.0
 margin_top = -17.0
 margin_right = 106.0
 margin_bottom = 17.0
-custom_fonts/normal_font = SubResource( 26 )
+custom_fonts/normal_font = ExtResource( 13 )
 custom_styles/normal = SubResource( 25 )
 bbcode_enabled = true
 bbcode_text = "[center]NOT AVAILABLE[/center]"
@@ -1511,7 +1497,7 @@ margin_left = 5.0
 margin_top = -0.0499878
 margin_right = 2.07504
 margin_bottom = 45.95
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[center]ENERGY BOTTLE[/center]"
 text = "ENERGY BOTTLE"
@@ -1547,7 +1533,7 @@ margin_left = 2.0
 margin_top = 15.15
 margin_right = 2.07199
 margin_bottom = 61.15
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
 bbcode_text = "[center]TRAP CRATE[/center]"
 text = "TRAP CRATE"
@@ -1573,7 +1559,7 @@ margin_left = -106.0
 margin_top = -17.0
 margin_right = 106.0
 margin_bottom = 17.0
-custom_fonts/normal_font = SubResource( 26 )
+custom_fonts/normal_font = ExtResource( 13 )
 custom_styles/normal = SubResource( 25 )
 bbcode_enabled = true
 bbcode_text = "[center]NOT AVAILABLE[/center]"

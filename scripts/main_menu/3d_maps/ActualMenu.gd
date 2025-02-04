@@ -33,6 +33,9 @@ func _ready():
 
 func _getInventory():
 	return get_parent()._getInventory()
+	
+func _process(_delta):
+	$UserInterface/RichTextLabel.bbcode_text = "[center]" + str(Engine.get_frames_per_second()) + "[/center]"
 
 func _on_Play_pressed():
 	actionPressed = "play"

@@ -48,8 +48,11 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
+threads/thread_model=2
+threads/thread_safe_bvh=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/lightmapping/use_bicubic_sampling.mobile=true
 quality/filters/msaa=1
 quality/filters/use_fxaa=true
 environment/default_environment="res://default_env.tres"

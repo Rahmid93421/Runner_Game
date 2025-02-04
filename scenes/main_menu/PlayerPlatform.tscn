@@ -1,10 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/misc/environment_props.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://assets/models/env/ground.glb" type="PackedScene" id=2]
 [ext_resource path="res://assets/models/env/bridge-draw.glb" type="PackedScene" id=3]
 
+[sub_resource type="OccluderShapeSphere" id=1]
+spheres = [ Plane( -0.0131893, 1.36427, 0, 4.25132 ) ]
+
 [node name="PlayerPlatform" type="Spatial"]
+
+[node name="Occluder" type="Occluder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27698, -2.96922 )
+shape = SubResource( 1 )
 
 [node name="ground 2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0 )

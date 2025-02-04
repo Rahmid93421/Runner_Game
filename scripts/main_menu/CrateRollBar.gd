@@ -118,5 +118,5 @@ func _rollTheBar():
 	if(type == "toolcrate"):
 		startRolling = true
 		goodItem = null
-		speed = 27 + _rng_number_params(-5, 5)
+		speed = 40 + _rng_number_params(-5, 5)
 		expSpeed = speed + _rng_number_params(-5, 5)
