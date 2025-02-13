@@ -6,6 +6,8 @@ onready var textureRect = $TextureRect
 onready var panels = $Control
 onready var itemName = $RichTextLabel
 onready var parentNode = get_parent().get_parent().get_parent()
+onready var rollBar = $Control2
+onready var initialization = true
 
 onready var texturesItems = {
 	"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
@@ -82,8 +84,37 @@ func _loadData():
 
 func _on_AnimationPlayer_animation_started(anim_name):
 	if(anim_name == "GetBig"):
+		if(parentNode.inventory['toolcrate'] <= 0 and item == "toolcrate"):
+			$Button.disabled = true
+		else:
+			$Button.disabled = false
 		_loadData()
+	if(anim_name == "OpenCaseo"):
+		rollBar.type = item
+		rollBar._setItemsSprites()
 
 func _on_buy_pressed():
 	parentNode.infoPanelActive = false
 	parentNode._addToInventory(item)
+
+func _on_Button_pressed():
+	if(item == "toolcrate" and parentNode.inventory['toolcrate'] > 0):
+		$AnimationPlayer.play("OpenCaseo")
+		if(initialization == false):
+			parentNode._useToolCrate()
+			parentNode._buildItems()
+			if(parentNode.inventory['toolcrate'] <= 0):
+				$Button.disabled = true
+		else:
+			initialization = false
+			
+	if(item == "energybottle"):
+		$AnimationPlayer.play("GetSmall")
+		parentNode._energyBottlePopped()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "OpenCaseo"):
+		rollBar._rollTheBar()
+	if(anim_name == "GetSmall" and parentNode.finishedOpening == true):
+		$AnimationPlayer.play("RevertOpenCaseo")
+		parentNode.finishedOpening = false

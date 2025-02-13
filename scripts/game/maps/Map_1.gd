@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 onready var parentNode = get_parent()

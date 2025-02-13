@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://grass_blade_shader.tres" type="Shader" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = -1
+octaves = 1
+period = 256.0
+
+[sub_resource type="NoiseTexture" id=4]
+seamless = true
+noise = SubResource( 3 )
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/sway = 0.1
+shader_param/sway_ = 0.0
+shader_param/sway_pow = 2.0
+shader_param/grass_roughness = 0.2
+shader_param/sway_noise_sampeling_scale = 0.0
+shader_param/sway_time_scale = 0.3
+shader_param/sway_dir = Vector3( 1, 0, 1 )
+shader_param/color_scale = 2.0
+shader_param/color_grad_height = -3.5
+shader_param/top_color = Color( 0.478431, 0.772549, 0.156863, 1 )
+shader_param/bot_color = Color( 0.0784314, 0.552941, 0.309804, 1 )
+shader_param/grass_scale = Vector3( 1, 1, 1 )
+shader_param/sway_noise = SubResource( 4 )

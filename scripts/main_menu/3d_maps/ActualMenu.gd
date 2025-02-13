@@ -5,12 +5,9 @@ onready var animationNode = $UserInterface/AnimationPlayer
 onready var parentNode = get_parent()
 onready var characterNode = $Environment/character_animations
 onready var characterNodeAnim = $Environment/character_animations/AnimationPlayer
-onready var shopNodeAnimPlayer = $UserInterface/ShopPanel/CanvasLayer/AnimationPlayer
 onready var userNameLabel = $UserInterface/Panel/Username
 onready var coinsLabel = $UserInterface/Panel/Currency
 onready var energyLabel = $UserInterface/Panel/Panel/Energy
-onready var inventoryNodeAnim = $UserInterface/Inventory/CanvasLayer/AnimationPlayer
-onready var moreEnergyButton = $UserInterface/Panel/Panel/Button
 
 var actionPressed = null
 var energyAvailable = null
@@ -22,14 +19,9 @@ func _ready():
 	
 	energyAvailable = parentNode._getEnergy()
 	
-	if(energyAvailable < 5):
-		moreEnergyButton.visible = true
-	else:
-		moreEnergyButton.hide()
-	
 	userNameLabel.bbcode_text = "[center] Welcome back,\n" + parentNode._getUserName() + "[/center]"
 	coinsLabel.bbcode_text = "[center] COINS\n" + str(parentNode._getCoins()) + "[/center]"
-	energyLabel.bbcode_text = "[center] ENERGY\n" + str(parentNode._getEnergy()) + "/5[/center]"
+	energyLabel.bbcode_text = "[center] ENERGY\n" + str(parentNode._getEnergy()) + "[/center]"
 
 func _getInventory():
 	return get_parent()._getInventory()
@@ -55,13 +47,20 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		match actionPressed:
 			"play":
 				parentNode._load_game()
+			"shop":
+				parentNode._load_shop()
+			"inventory":
+				parentNode._load_inventory()
 		self.queue_free()
 
 func _on_Shop_pressed():
-	shopNodeAnimPlayer.play("FadIn")
+	animationNode.play("OutroAnim")
+	actionPressed = "shop"
 	
 func _on_Inventory_pressed():
-	inventoryNodeAnim.play("FadIn")
+	# inventoryNodeAnim.play("FadIn")
+	animationNode.play("OutroAnim")
+	actionPressed = "inventory"
 	
 func _addToInventory(item):
 	parentNode._incrementInventoryItem(item)
@@ -71,3 +70,14 @@ func _saveOpenedItem(item):
 	
 func _getItemData2():
 	return get_parent()._getItemData()
+
+func _energyBottlePopped():
+	parentNode._addEnergy(5)
+	energyLabel.bbcode_text = "[center] ENERGY\n" + str(parentNode._getEnergy()) + "/5[/center]"
+	
+func _useToolCrate():
+	parentNode._useToolCrate()
+
+
+func _on_Item3_mouse_entered():
+	pass # Replace with function body.

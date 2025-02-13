@@ -2,10 +2,12 @@ extends Node
 
 onready var mainMenuNode = preload("res://scenes/main_menu/MainMenu.tscn")
 onready var gameWorldNode = preload("res://scenes/game/GameWorld.tscn")
-onready var shopNode = preload("res://scenes/main_menu/Shop.tscn")
+onready var shopNode = preload("res://scenes/main_menu/ShopPanel.tscn")
+onready var inventoryNode = preload("res://scenes/main_menu/Inventory.tscn")
 onready var yodoNode = $Yodo1Mas
 onready var yodoInitialized = false
 onready var audioPlayer = $AudioStreamPlayer
+onready var actualMainMenu = preload("res://scenes/main_menu/ActualMenu.tscn")
 
 var dataDict = {
 	7: "powerlevel: 0", # fake powerlevel
@@ -29,7 +31,7 @@ var dataDict = {
 		},
 	4: 0, # powerlevel
 	6: "skins: {}", # fake skins value
-	8: 5
+	8: 5 # energy
 }
 var saveGamePath = "user://saveGame.save";
 var maxEnergy = 5
@@ -78,8 +80,18 @@ func _getUserName():
 func _getCoins():
 	return dataDict[1]
 	
+func _useEnergyBottle():
+	dataDict[3]['energybottle'] -= 1
+	
 func _getEnergy():
 	return dataDict[8]
+	
+func _useToolCrate():
+	dataDict[3]['toolcrate'] -= 1
+
+func _addEnergy(value):
+	dataDict[8] += value
+	_saveToFile()
 	
 func _energyDecrease():
 	dataDict[8] -= 1
@@ -102,14 +114,19 @@ func _load_main_menu():
 	var instance = mainMenuNode.instance()
 	self.add_child(instance)
 
+func _load_inventory():
+	var instance = inventoryNode.instance()
+	self.add_child(instance)
+
 func _load_game():
-	if(_checkEnergy() > 0 && _checkEnergy() <= maxEnergy):
+	if(_checkEnergy() > 0):
 		_energyDecrease()
 		var instance = gameWorldNode.instance()
 		self.add_child(instance)
-	else:
-		if(_checkEnergy() > maxEnergy):
-			$RichTextLabel.visible = true
+
+func _load_actual_menu():
+	var instance = actualMainMenu.instance()
+	self.add_child(instance)
 
 func _load_shop():
 	var instance = shopNode.instance()

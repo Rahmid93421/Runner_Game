@@ -1,12 +1,17 @@
 extends Node2D
 
 onready var animationPlayerNode = $CanvasLayer/AnimationPlayer
-onready var parentNode = get_parent().get_parent()
+onready var parentNode = get_parent()
 onready var infoPanelAnim = $CanvasLayer/Panel/InfoPanel/AnimationPlayer
 onready var rollBar = $CanvasLayer/Panel/InfoPanel/Control2
 onready var infoPanel = $CanvasLayer/Panel/InfoPanel
+onready var coinsLabel = $CanvasLayer/Panel/Title2
 
 var infoPanelActive = false
+var finishOpening = false
+
+func _ready():
+	_update_label()
 
 func _on_Button3_pressed():
 	if(infoPanelActive == false):
@@ -17,8 +22,18 @@ func _on_Button3_pressed():
 
 func _on_Button4_pressed():
 	infoPanelAnim.play("GetSmall")
-	infoPanelAnim.play("RevertOpenCaseo")
+	finishOpening = true
+	infoPanelActive = false
 	rollBar._revertItems()
+	
+func _update_coins_value():
+	return parentNode._getCoins()
+
+func _update_energy_value():
+	return parentNode._getEnergy()
+	
+func _update_label():
+	coinsLabel.bbcode_text = "[center] COINS: " + str(_update_coins_value()) + " | ENERGY: " + str(_update_energy_value()) + "[/center]"
 
 func _on_Item1_mouse_entered():
 	infoPanel.item = "toolcrate"
@@ -41,8 +56,19 @@ func _on_Item4_mouse_entered():
 	infoPanelActive = true
 	
 func _addToInventory(item):
-	parentNode._addToInventory(item)
+	parentNode._incrementInventoryItem(item)
 	$CanvasLayer/Panel/InfoPanel/AnimationPlayer.play("GetSmall")
 
 func _saveOpenedItem(item):
-	parentNode._saveOpenedItem(item)
+	parentNode._tollCrateOpenedItemSave(item)
+	
+func _energyBottlePopped():
+	parentNode._addEnergy(5)
+	infoPanelActive = false
+	infoPanelAnim.play("GetSmall")
+	_update_label()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "FadOut"):
+		parentNode._load_actual_menu()
+		self.queue_free()

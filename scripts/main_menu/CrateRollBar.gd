@@ -34,6 +34,7 @@ onready var textures = {
 onready var shuffledItems = []
 onready var rng = RandomNumberGenerator.new()
 onready var shopParent = get_parent().get_parent().get_parent().get_parent()
+onready var rootNodeParent = get_parent().get_parent().get_parent()
 
 var tailItem = null
 var startRolling = false
@@ -90,6 +91,7 @@ func _process(delta):
 				$"../Button4".visible = true
 				print(goodItem.name)
 				shopParent._saveOpenedItem(goodItem.name)
+				shopParent.finishOpening = true
 
 func _rng_number_params(minimum, maximum):
 	rng.randomize()

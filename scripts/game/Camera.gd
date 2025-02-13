@@ -1,13 +1,14 @@
 extends Camera
 
-onready var playerAnimation = $character_animations_new/AnimationPlayer
-onready var playerNode = $character_animations_new
+onready var playerAnimation = $character_anims/AnimationPlayer
+onready var playerNode = $character_anims
 onready var animationPlayer = $"../../AnimationPlayer"
 onready var animationPlayer2 = $"../../AnimationPlayer2"
 onready var gameWorldNode = get_parent().get_parent()
 
 export var movePlayer = 0.0
 export var jumpPlayerY = -0.941
+export var rotationPlayerX = 0
 
 var touch_start_position = Vector2()
 var swipe_threshold = 100
@@ -19,29 +20,32 @@ var playOutro = false
 func _ready():
 	playerAnimation.connect("animation_finished", self, "_on_model_animation_finished")
 	
-	playerAnimation.get_animation("Root|mixamocom|Layer0004").loop = true
-	playerAnimation.play("Root|mixamocom|Layer0004")
+	playerAnimation.get_animation("Root|mixamocom|Layer0").loop = true
+	playerAnimation.play("Root|mixamocom|Layer0")
 
 func _process(delta):
 	if(gameWorldNode.gameOver == false):
 		self.position.z += 2 * delta
 		playerNode.position.x = movePlayer
 		playerNode.position.y = jumpPlayerY
+		playerNode.rotation_degrees.x = rotationPlayerX
 	else:
 		if(playOutro == false):
 			animationPlayer.stop()
 			if(jumpFinished == true):
-				playerAnimation.play("Root|mixamocom|Layer0001_Root")
+				playerAnimation.play("Root|mixamocom|Layer0001_Root_Root")
 			else:
-				playerAnimation.play("Root|mixamocom|Layer0_Root001")
+				playerAnimation.play("Root|mixamocom|Layer0_Root001_Root")
+			playerAnimation.playback_speed = 0.6
 			playOutro = true
 
 func _on_model_animation_finished(anim_name):
-	if(anim_name == "Root|mixamocom|Layer0003"): # check if jump is finished
+	if(anim_name == "Root|mixamocom|Layer0001"): # check if jump is finished
 		jumpFinished = true
-		playerAnimation.play("Root|mixamocom|Layer0004")
-	if(anim_name == "Root|mixamocom|Layer0_Root001" || anim_name == "Root|mixamocom|Layer0001_Root"):
+		playerAnimation.play("Root|mixamocom|Layer0")
+	if(anim_name == "Root|mixamocom|Layer0001_Root_Root" || anim_name == "Root|mixamocom|Layer0_Root001_Root"):
 		animationPlayer.play("Outro")
+		playerAnimation.playback_speed = 1
 
 func _input(event):
 	if event is InputEventScreenTouch:
@@ -89,7 +93,7 @@ func _on_swipe_up():
 		jumpFinished = false
 		playerAnimation.stop()
 		animationPlayer2.play("Jump")
-		playerAnimation.play("Root|mixamocom|Layer0003")
+		playerAnimation.play("Root|mixamocom|Layer0001")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "GoLeftFromRight" || anim_name == "GoLeft" || anim_name == "GoRight" || anim_name == "GoRightFromLeft"):

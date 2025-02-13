@@ -6,6 +6,8 @@ onready var canvasNode = $CanvasLayer/Panel
 onready var animNodeInfoPanel = $CanvasLayer/Panel/InfoPanel/AnimationPlayer
 onready var itemsNode = $CanvasLayer/Panel/Items
 onready var infoPanel = $CanvasLayer/Panel/InfoPanel
+onready var rollBar = $CanvasLayer/Panel/InfoPanel/Control2
+onready var coinsLabel = $CanvasLayer/Panel/Title2
 
 var itemsNodeChildren
 var names = ["toolcrate", "skincrate", "trapcrate", "energybottle"]
@@ -45,20 +47,24 @@ var itemsRarity = {
 	"8L4576R": "134be8"
 }
 
-var item = 0
+var itemx = 0
 var infoPanelActive = false
+var finishedOpening = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	parentNode = get_parent().get_parent()
+	parentNode = get_parent()
 	itemsNodeChildren = $CanvasLayer/Panel/Items.get_children()
 	
-	for itemx in itemsNodeChildren:
-		itemx.hide()
+	inventory = get_parent()._getInventory()
+	items = get_parent()._getItemData()
+	_buildItems()
+	
+	_update_label()
 	
 func _buildItems():
-#	itemsNodeChildren = $CanvasLayer/Panel/Items.get_children()
-	item = 0
+	itemsNodeChildren = $CanvasLayer/Panel/Items.get_children()
+	itemx = 0
 	var texturesDict = {
 		"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
 		"skincrate": preload("res://assets/sprites/shop/items/skin_crate.png"),
@@ -75,31 +81,54 @@ func _buildItems():
 		"8L4575R": preload("res://assets/sprites/shop/guns/blasterC.png"),
 		"8L4576R": preload("res://assets/sprites/shop/guns/blasterD.png")
 	}
+	print(inventory)
+	for itema in itemsNodeChildren:
+		itema.hide()
 	for name in names:
 		if(inventory[name] > 0):
-			itemsNodeChildren[item].visible = true
-			itemsNodeChildren[item].item = name
-			itemsNodeChildren[item].get_node("TextureRect").texture = texturesDict[name]
-			itemsNodeChildren[item].get_node("RichTextLabel").bbcode_text = "[center]" + naming[name] + "[/center]"
-			itemsNodeChildren[item].get_node("RichTextLabel2").bbcode_text = "[center] x" + str(inventory[name]) + "[/center]"
-			item += 1
+			itemsNodeChildren[itemx].visible = true
+			itemsNodeChildren[itemx].item = name
+			itemsNodeChildren[itemx].get_node("TextureRect").texture = texturesDict[name]
+			itemsNodeChildren[itemx].get_node("RichTextLabel").bbcode_text = "[center]" + naming[name] + "[/center]"
+			itemsNodeChildren[itemx].get_node("RichTextLabel2").bbcode_text = "[center] x" + str(inventory[name]) + "[/center]"
+			itemx += 1
 	
 	
 	for name in itemsName:
 		if(items['blasters'][name][2] > 0):
-			itemsNodeChildren[item].get_stylebox("panel").border_color = itemsRarity[name]
-			itemsNodeChildren[item].visible = true
-			itemsNodeChildren[item].item = name
-			itemsNodeChildren[item].get_node("TextureRect").texture = itemsDict[name]
-			itemsNodeChildren[item].get_node("RichTextLabel").bbcode_text = "[center]" + name + "[/center]"
-			itemsNodeChildren[item].get_node("RichTextLabel2").bbcode_text = "[center] x" + str(items['blasters'][name][2]) + "[/center]"
-			item += 1
+			itemsNodeChildren[itemx].get_stylebox("panel").border_color = itemsRarity[name]
+			itemsNodeChildren[itemx].visible = true
+			itemsNodeChildren[itemx].item = name
+			itemsNodeChildren[itemx].get_node("TextureRect").texture = itemsDict[name]
+			itemsNodeChildren[itemx].get_node("RichTextLabel").bbcode_text = "[center]" + name + "[/center]"
+			itemsNodeChildren[itemx].get_node("RichTextLabel2").bbcode_text = "[center] x" + str(items['blasters'][name][2]) + "[/center]"
+			itemx += 1
 			
-func _on_AnimationPlayer_animation_started(anim_name):
-	if(anim_name == "FadIn"):
-		inventory = get_parent().get_parent()._getInventory()
-		items = get_parent().get_parent()._getItemData2()
-		_buildItems()
+func _on_AnimationPlayer_animation_started(_anim_name):
+	pass
+#	if(anim_name == "FadIn"):
+#		inventory = get_parent()._getInventory()
+#		items = get_parent()._getItemData()
+#		_buildItems()
+
+func _update_coins_value():
+	return parentNode._getCoins()
+
+func _update_energy_value():
+	return parentNode._getEnergy()
+	
+func _update_label():
+	coinsLabel.bbcode_text = "[center] COINS: " + str(_update_coins_value()) + " | ENERGY: " + str(_update_energy_value()) + "[/center]"
+
+func _energyBottlePopped():
+	parentNode._addEnergy(5)
+	parentNode._useEnergyBottle()
+	parentNode._saveToFile()
+	infoPanelActive = false
+	inventory = get_parent()._getInventory()
+	items = get_parent()._getItemData()
+	_buildItems()
+	_update_label()
 
 func _on_Button3_pressed():
 	if(infoPanelActive == false):
@@ -107,7 +136,29 @@ func _on_Button3_pressed():
 	else:
 		infoPanelActive = false
 		animNodeInfoPanel.play("GetSmall")
+		finishedOpening = true
 
 func _on_Button_pressed():
 	infoPanelActive = false
 	animNodeInfoPanel.play("GetSmall")
+	
+func _saveOpenedItem(itemxa):
+	parentNode._tollCrateOpenedItemSave(itemxa)
+	_buildItems()
+
+func _on_Button4_pressed():
+	animNodeInfoPanel.play("GetSmall")
+	finishedOpening = true
+	rollBar._revertItems()
+	
+func _useToolCrate():
+	parentNode._useToolCrate()
+	
+func _getData():
+	inventory = get_parent()._getInventory()
+	items = get_parent()._getItemData()
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "FadOut"):
+		get_parent()._load_actual_menu()
+		self.queue_free()

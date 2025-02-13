@@ -75,8 +75,8 @@ func _on_buy_pressed():
 func _on_Button_pressed():
 	if(item == "toolcrate"):
 		animationPlayer.play("OpenCaseo")
-	else:
-		animationPlayer.play("GetSmall")
+	if(item == "energybottle"):
+		parentNode._energyBottlePopped()
 	
 func _playResetOpenCaseo():
 	animationPlayer.play("RevertOpenCaseo")
@@ -84,3 +84,6 @@ func _playResetOpenCaseo():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "OpenCaseo"):
 		rollBar._rollTheBar()
+	if(anim_name == "GetSmall" and parentNode.finishOpening == true):
+		animationPlayer.play("RevertOpenCaseo")
+		parentNode.finishOpening = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/misc/username_coins_panel.tres" type="StyleBox" id=2]
@@ -11,6 +11,17 @@
 [ext_resource path="res://scripts/main_menu/inventory/Item#2.gd" type="Script" id=9]
 [ext_resource path="res://scripts/main_menu/inventory/Item#3.gd" type="Script" id=10]
 [ext_resource path="res://scripts/main_menu/inventory/Item#4.gd" type="Script" id=11]
+[ext_resource path="res://scripts/main_menu/inventory/Control2.gd" type="Script" id=12]
+[ext_resource path="res://scenes/main_menu/3d_maps/MapGeneration.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/main_menu/Camera_Movement.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=85]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 32
@@ -192,53 +203,209 @@ corner_radius_bottom_left = 35
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=84]
 resource_name = "GetBig"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:margin_left")
+tracks/0/path = NodePath("Control:margin_left")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, -367.5 ]
+"values": [ -357.5 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:margin_top")
+tracks/1/path = NodePath("Control:margin_right")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, -297.0 ]
+"values": [ 357.5 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:margin_right")
+tracks/2/path = NodePath("Control:margin_top")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, 367.5 ]
+"values": [ -86 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath(".:margin_bottom")
+tracks/3/path = NodePath("Control:margin_bottom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 86.764 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RichTextLabel:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TextureRect:margin_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.23801 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TextureRect:margin_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Button3:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control2:margin_top")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Control2:margin_bottom")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Control2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Button4:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath(".:margin_left")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -367.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath(".:margin_top")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -297.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath(".:margin_right")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 367.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath(".:margin_bottom")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 297.0 ]
@@ -296,7 +463,7 @@ tracks/3/keys = {
 "values": [ 297.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=82]
 resource_name = "Ini"
 length = 0.001
 tracks/0/type = "value"
@@ -346,6 +513,285 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control:margin_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -357.5 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Control:margin_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -86.236 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Control:margin_right")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 357.5 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Control:margin_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 86.764 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Control2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TextureRect:margin_bottom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("TextureRect:margin_right")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0450134 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("TextureRect:margin_top")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5.23801 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("TextureRect:margin_left")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -0.0449982 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Button4:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=78]
+resource_name = "OpenCaseo"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -357.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 357.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -86, 90 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 86.764 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RichTextLabel:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TextureRect:margin_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.23801, -90.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TextureRect:margin_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -85.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Button3:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control2:margin_top")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 86.0, -86.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Control2:margin_bottom")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 86.764 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Control2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Button4:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=24]
@@ -398,6 +844,177 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 297.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button4:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=79]
+resource_name = "RevertOpenCaseo"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -357.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:margin_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 357.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control:margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -86 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 86.764 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Button:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RichTextLabel:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("TextureRect:margin_top")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5.23801 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("TextureRect:margin_bottom")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Button3:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Control2:margin_top")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Control2:margin_bottom")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Control2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Button4:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="DynamicFont" id=26]
 size = 48
@@ -423,13 +1040,12 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=33]
+[sub_resource type="StyleBoxFlat" id=56]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -437,15 +1053,14 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="Theme" id=29]
+[sub_resource type="Theme" id=57]
 
-[sub_resource type="StyleBoxFlat" id=34]
+[sub_resource type="StyleBoxFlat" id=58]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -453,13 +1068,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=35]
+[sub_resource type="StyleBoxFlat" id=59]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -467,13 +1081,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=36]
+[sub_resource type="StyleBoxFlat" id=60]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -481,13 +1094,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=37]
+[sub_resource type="StyleBoxFlat" id=61]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -495,13 +1107,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=38]
+[sub_resource type="StyleBoxFlat" id=62]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -509,13 +1120,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=39]
+[sub_resource type="StyleBoxFlat" id=63]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -523,13 +1133,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=40]
+[sub_resource type="StyleBoxFlat" id=64]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -537,13 +1146,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=41]
+[sub_resource type="StyleBoxFlat" id=65]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -551,13 +1159,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=42]
+[sub_resource type="StyleBoxFlat" id=66]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -565,13 +1172,12 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=43]
+[sub_resource type="StyleBoxFlat" id=67]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -579,19 +1185,114 @@ corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
 
-[sub_resource type="StyleBoxFlat" id=44]
+[sub_resource type="StyleBoxFlat" id=68]
 bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color( 0.909804, 0.760784, 0.0745098, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_color = Color( 0, 0, 0, 0.780392 )
 shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=69]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="Theme" id=70]
+
+[sub_resource type="StyleBoxFlat" id=71]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=72]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=73]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=74]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=75]
+bg_color = Color( 0.0509804, 0.396078, 0.513726, 0.486275 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 0.780392 )
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id=76]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_right = 15
+border_color = Color( 0.219608, 0.203922, 0.203922, 1 )
+border_blend = true
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=77]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 15
+border_color = Color( 0.219608, 0.203922, 0.203922, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=30]
 size = 28
@@ -613,9 +1314,29 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="DynamicFont" id=80]
+size = 28
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=81]
+bg_color = Color( 1, 0.913725, 0.341176, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Animation" id=17]
 resource_name = "FadIn"
-length = 0.4
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Panel:margin_left")
 tracks/0/interp = 1
@@ -623,7 +1344,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 1, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -400.0 ]
@@ -635,7 +1356,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 1, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -500.0 ]
@@ -647,7 +1368,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 1, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 400.0 ]
@@ -659,15 +1380,51 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 1, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 500.0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Panel/InfoPanel/Button3:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "FadOut"
-length = 0.4
+length = 1.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Panel:margin_left")
 tracks/0/interp = 1
@@ -715,6 +1472,30 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 500.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -831,11 +1612,55 @@ tracks/4/keys = {
 "update": 1,
 "values": [ 0.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/Panel/InfoPanel/Button3:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="BoxShape" id=83]
+extents = Vector3( 0.372857, 0.752933, 0.17426 )
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.439216 )
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchor_left = 0.5
@@ -852,14 +1677,30 @@ anchor_left = 0.073
 anchor_top = 0.08
 anchor_right = 0.927
 anchor_bottom = 0.08
-margin_left = 0.533901
-margin_right = -0.233948
-margin_bottom = 210.0
+margin_left = 0.600002
+margin_top = -55.0
+margin_right = -0.167847
+margin_bottom = 155.0
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[center]INVENTORY[/center]"
 text = "INVENTORY"
+
+[node name="Title2" type="RichTextLabel" parent="CanvasLayer/Panel"]
+anchor_left = 0.073
+anchor_top = 0.151
+anchor_right = 0.926
+anchor_bottom = 0.151
+margin_left = 0.600002
+margin_top = -1.52588e-05
+margin_right = 0.199951
+margin_bottom = 53.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 85 )
+bbcode_enabled = true
+bbcode_text = "[center]COINS[/center]"
+text = "COINS"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel"]
 anchor_left = 0.385
@@ -930,13 +1771,13 @@ texture = ExtResource( 6 )
 expand = true
 
 [node name="Item#2" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.351
+anchor_left = 0.369
 anchor_top = 0.219
-anchor_right = 0.613
+anchor_right = 0.632
 anchor_bottom = 0.409
-margin_left = 14.5791
-margin_top = -0.400024
-margin_right = 15.2547
+margin_left = 0.179108
+margin_top = -0.40004
+margin_right = 0.054657
 margin_bottom = -0.400146
 custom_styles/panel = SubResource( 46 )
 script = ExtResource( 9 )
@@ -1081,14 +1922,14 @@ bbcode_text = "[center]x10[/center]"
 text = "x10"
 
 [node name="Item#5" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.07
-anchor_top = 0.219
-anchor_right = 0.333
-anchor_bottom = 0.409
-margin_left = 239.379
-margin_top = 221.0
-margin_right = 239.199
-margin_bottom = 221.0
+anchor_left = 0.369
+anchor_top = 0.44
+anchor_right = 0.632
+anchor_bottom = 0.63
+margin_left = 0.178986
+margin_top = -3.05176e-05
+margin_right = -0.0010376
+margin_bottom = -6.10352e-05
 custom_styles/panel = SubResource( 49 )
 script = ExtResource( 3 )
 
@@ -1132,14 +1973,14 @@ texture = ExtResource( 6 )
 expand = true
 
 [node name="Item#6" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.351
-anchor_top = 0.219
-anchor_right = 0.613
-anchor_bottom = 0.409
-margin_left = 251.971
-margin_top = 221.0
-margin_right = 252.647
-margin_bottom = 221.0
+anchor_left = 0.666
+anchor_top = 0.44
+anchor_right = 0.929
+anchor_bottom = 0.63
+margin_left = -0.0289917
+margin_top = -3.05176e-05
+margin_right = -0.153015
+margin_bottom = -6.10352e-05
 custom_styles/panel = SubResource( 50 )
 script = ExtResource( 9 )
 
@@ -1183,14 +2024,13 @@ bbcode_text = "[center]x10[/center]"
 text = "x10"
 
 [node name="Item#7" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.666
-anchor_top = 0.219
-anchor_right = 0.929
-anchor_bottom = 0.409
-margin_left = -476.8
-margin_top = 437.6
-margin_right = -476.98
-margin_bottom = 437.6
+anchor_left = 0.07
+anchor_top = 0.675
+anchor_right = 0.333
+anchor_bottom = 0.847
+margin_top = -18.4
+margin_right = -0.179993
+margin_bottom = -0.400085
 custom_styles/panel = SubResource( 51 )
 script = ExtResource( 10 )
 
@@ -1234,14 +2074,14 @@ bbcode_text = "[center]x10[/center]"
 text = "x10"
 
 [node name="Item#8" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.07
-anchor_top = 0.44
-anchor_right = 0.333
-anchor_bottom = 0.63
-margin_left = 239.379
-margin_top = 216.6
-margin_right = 239.199
-margin_bottom = 216.6
+anchor_left = 0.369
+anchor_top = 0.657
+anchor_right = 0.632
+anchor_bottom = 0.847
+margin_left = 0.178986
+margin_top = -0.400024
+margin_right = -0.0010376
+margin_bottom = -0.400085
 custom_styles/panel = SubResource( 52 )
 script = ExtResource( 11 )
 
@@ -1285,14 +2125,14 @@ bbcode_text = "[center]x10[/center]"
 text = "x10"
 
 [node name="Item#9" type="Panel" parent="CanvasLayer/Panel/Items"]
-anchor_left = 0.07
-anchor_top = 0.219
-anchor_right = 0.333
-anchor_bottom = 0.409
-margin_left = 476.771
-margin_top = 437.6
-margin_right = 476.591
-margin_bottom = 437.6
+anchor_left = 0.666
+anchor_top = 0.657
+anchor_right = 0.929
+anchor_bottom = 0.847
+margin_left = -0.0289917
+margin_top = -0.400024
+margin_right = -0.209045
+margin_bottom = -0.400085
 custom_styles/panel = SubResource( 53 )
 script = ExtResource( 3 )
 
@@ -1387,10 +2227,12 @@ script = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Panel/InfoPanel"]
 autoplay = "Ini"
-anims/GetBig = SubResource( 21 )
+anims/GetBig = SubResource( 84 )
 anims/GetSmall = SubResource( 22 )
-anims/Ini = SubResource( 23 )
+anims/Ini = SubResource( 82 )
+anims/OpenCaseo = SubResource( 78 )
 anims/RESET = SubResource( 24 )
+anims/RevertOpenCaseo = SubResource( 79 )
 
 [node name="Button3" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
 anchor_left = 0.833
@@ -1427,20 +2269,20 @@ anchor_right = 0.653
 anchor_bottom = 0.545
 margin_left = -0.0449982
 margin_top = 5.23801
-margin_right = 0.0448914
-margin_bottom = 0.269989
+margin_right = 0.0450134
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Control" type="Control" parent="CanvasLayer/Panel/InfoPanel"]
-anchor_left = 0.014
-anchor_top = 0.549
-anchor_right = 0.986
-anchor_bottom = 0.84
-margin_left = -0.29
-margin_top = -0.106018
-margin_right = 0.289978
-margin_bottom = 0.039978
+anchor_left = 0.5
+anchor_top = 0.694
+anchor_right = 0.5
+anchor_bottom = 0.694
+margin_left = -357.5
+margin_top = -86.0
+margin_right = 357.5
+margin_bottom = 86.764
+rect_clip_content = true
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
 anchor_left = 0.021
@@ -1449,7 +2291,7 @@ anchor_bottom = 0.428
 margin_left = 30.985
 margin_right = 31.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 33 )
+custom_styles/panel = SubResource( 56 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel"]
 anchor_left = 0.5
@@ -1460,7 +2302,7 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -1471,7 +2313,7 @@ anchor_bottom = 0.428
 margin_left = 135.985
 margin_right = 136.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 34 )
+custom_styles/panel = SubResource( 58 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel2"]
 anchor_left = 0.5
@@ -1482,7 +2324,7 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -1493,7 +2335,7 @@ anchor_bottom = 0.428
 margin_left = 240.985
 margin_right = 241.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 35 )
+custom_styles/panel = SubResource( 59 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel3"]
 anchor_left = 0.5
@@ -1504,7 +2346,7 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -1515,7 +2357,7 @@ anchor_bottom = 0.428
 margin_left = 345.985
 margin_right = 346.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 36 )
+custom_styles/panel = SubResource( 60 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel4"]
 anchor_left = 0.5
@@ -1526,7 +2368,7 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -1537,7 +2379,7 @@ anchor_bottom = 0.428
 margin_left = 450.985
 margin_right = 451.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 37 )
+custom_styles/panel = SubResource( 61 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel5"]
 anchor_left = 0.5
@@ -1548,7 +2390,7 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
@@ -1559,7 +2401,7 @@ anchor_bottom = 0.428
 margin_left = 555.985
 margin_right = 556.18
 margin_bottom = -0.0440063
-custom_styles/panel = SubResource( 38 )
+custom_styles/panel = SubResource( 62 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel6"]
 anchor_left = 0.5
@@ -1570,12 +2412,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel7" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1583,7 +2424,7 @@ margin_left = 30.985
 margin_top = 86.0
 margin_right = 31.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 39 )
+custom_styles/panel = SubResource( 63 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel7"]
 anchor_left = 0.5
@@ -1594,12 +2435,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel8" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1607,7 +2447,7 @@ margin_left = 135.985
 margin_top = 86.0
 margin_right = 136.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 40 )
+custom_styles/panel = SubResource( 64 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel8"]
 anchor_left = 0.5
@@ -1618,12 +2458,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel9" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1631,7 +2470,7 @@ margin_left = 240.985
 margin_top = 86.0
 margin_right = 241.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 41 )
+custom_styles/panel = SubResource( 65 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel9"]
 anchor_left = 0.5
@@ -1642,12 +2481,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel10" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1655,7 +2493,7 @@ margin_left = 345.985
 margin_top = 86.0
 margin_right = 346.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 42 )
+custom_styles/panel = SubResource( 66 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel10"]
 anchor_left = 0.5
@@ -1666,12 +2504,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel11" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1679,7 +2516,7 @@ margin_left = 450.985
 margin_top = 86.0
 margin_right = 451.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 43 )
+custom_styles/panel = SubResource( 67 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel11"]
 anchor_left = 0.5
@@ -1690,12 +2527,11 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
 
 [node name="Panel12" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control"]
-visible = false
 anchor_left = 0.021
 anchor_right = 0.148
 anchor_bottom = 0.428
@@ -1703,7 +2539,7 @@ margin_left = 555.985
 margin_top = 86.0
 margin_right = 556.18
 margin_bottom = 85.956
-custom_styles/panel = SubResource( 44 )
+custom_styles/panel = SubResource( 68 )
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control/Panel12"]
 anchor_left = 0.5
@@ -1714,9 +2550,213 @@ margin_left = -33.5
 margin_top = -30.5
 margin_right = 33.5
 margin_bottom = 30.5
-theme = SubResource( 29 )
+theme = SubResource( 57 )
 texture = ExtResource( 6 )
 expand = true
+
+[node name="Control2" type="Control" parent="CanvasLayer/Panel/InfoPanel"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.694
+anchor_right = 0.5
+anchor_bottom = 0.694
+margin_left = -357.5
+margin_right = 357.5
+rect_clip_content = true
+script = ExtResource( 12 )
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 30.985
+margin_top = 9.0
+margin_right = 31.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 69 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 135.985
+margin_top = 9.0
+margin_right = 136.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 71 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel3" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 240.985
+margin_top = 9.0
+margin_right = 241.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 72 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel4" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 345.985
+margin_top = 9.0
+margin_right = 346.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 73 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel5" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 450.985
+margin_top = 9.0
+margin_right = 451.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 74 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel6" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 555.985
+margin_top = 9.0
+margin_right = 556.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 75 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel9" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.021
+anchor_right = 0.148
+anchor_bottom = 0.428
+margin_left = 660.985
+margin_top = 9.0
+margin_right = 661.18
+margin_bottom = 8.95599
+custom_styles/panel = SubResource( 75 )
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/InfoPanel/Control2/Panel9"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -30.5
+margin_right = 33.5
+margin_bottom = 30.5
+theme = SubResource( 70 )
+texture = ExtResource( 6 )
+expand = true
+
+[node name="Panel7" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.057
+anchor_top = 0.265
+anchor_right = 0.057
+anchor_bottom = 0.265
+margin_left = -40.755
+margin_top = -43.7825
+margin_right = 21.245
+margin_bottom = 44.2175
+custom_styles/panel = SubResource( 76 )
+
+[node name="Panel8" type="Panel" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.939
+anchor_top = 0.259
+anchor_right = 0.939
+anchor_bottom = 0.259
+margin_left = -20.385
+margin_top = -43.7459
+margin_right = 44.615
+margin_bottom = 44.2541
+custom_styles/panel = SubResource( 77 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel/InfoPanel/Control2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -2.5
+margin_top = -86.382
+margin_right = 2.5
+margin_bottom = 3.618
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
 anchor_left = 0.218
@@ -1733,13 +2773,50 @@ custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = SubResource( 31 )
 text = "OPEN"
 
+[node name="Button4" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
+anchor_left = 0.218
+anchor_top = 0.857
+anchor_right = 0.487
+anchor_bottom = 0.953
+margin_left = -1.23
+margin_top = -0.0579834
+margin_right = 215.055
+margin_bottom = -0.0820313
+rect_pivot_offset = Vector2( 93.5, 61 )
+rect_clip_content = true
+custom_fonts/font = SubResource( 80 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 81 )
+text = "CLOSE"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
-autoplay = "Init"
+autoplay = "FadIn"
 anims/FadIn = SubResource( 17 )
 anims/FadOut = SubResource( 18 )
 anims/Init = SubResource( 19 )
 anims/RESET = SubResource( 10 )
+
+[node name="MapGeneration" parent="." instance=ExtResource( 13 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, -4.37114e-08, 7.57103e-08, 0, 0.866025, 0.5, -8.74228e-08, 0.5, -0.866025, 0, 5, -10.922 )
+fov = 35.0
+size = 5.0
+far = 1201.5
+script = ExtResource( 14 )
+
+[node name="KinematicBody" type="KinematicBody" parent="Camera"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Camera/KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20077, -0.564382 )
+shape = SubResource( 83 )
 
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#1" to="CanvasLayer/Panel/Items/Item#1" method="_on_Item_mouse_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#2" to="CanvasLayer/Panel/Items/Item#2" method="_on_Item_mouse_entered"]
@@ -1751,7 +2828,10 @@ anims/RESET = SubResource( 10 )
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#8" to="CanvasLayer/Panel/Items/Item#8" method="_on_Item_mouse_entered"]
 [connection signal="mouse_entered" from="CanvasLayer/Panel/Items/Item#9" to="CanvasLayer/Panel/Items/Item#9" method="_on_Item_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Panel/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/Panel/InfoPanel/AnimationPlayer" to="CanvasLayer/Panel/InfoPanel" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/Panel/InfoPanel/AnimationPlayer" to="CanvasLayer/Panel/InfoPanel" method="_on_AnimationPlayer_animation_started"]
 [connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button3" to="." method="_on_Button3_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button" to="CanvasLayer/Panel/InfoPanel" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
