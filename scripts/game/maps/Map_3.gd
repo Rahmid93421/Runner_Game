@@ -56,8 +56,8 @@ func _generate_points():
 			instance.position = positionPoint
 			self.add_child(instance)
 			pointsInstances.append(instance)
-			positionPoint.x += 0.2
-		positionPoint.x = -0.2
+			positionPoint.x -= 0.2
+		positionPoint.x = 0.2
 		positionPoint.z += distPoint
 		
 func _free_points_instances():
