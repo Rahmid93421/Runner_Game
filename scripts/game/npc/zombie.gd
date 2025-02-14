@@ -22,7 +22,7 @@ func _ready():
 	animationPlayer.play("Root|mixamocom|Layer0")
 
 func _process(delta):
-	if(kill == false):
+	if(kill == false && dead == false):
 		zombieNode.position.z += moveUnits * delta
 #	print(delta)
 
@@ -32,5 +32,6 @@ func _on_Area_body_entered(body):
 		kill = true
 		parentNode._playerPunched()
 	else:
-		animationPlayer.play("Root|mixamocom|Layer0001")
-		dead = true
+		if(dead == false):
+			animationPlayer.play("Root|mixamocom|Layer0001")
+			dead = true

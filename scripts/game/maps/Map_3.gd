@@ -73,7 +73,7 @@ func _free_points_instances():
 	positionPoint = Vector3(0.2, 0, -7.5)
 
 func _on_Area_body_entered(body):
-	if(body.name == "KinematicBody"):
+	if(body.name == "CameraBody"):
 		_free_points_instances()
 		_generate_points()
 		parentNode._updatePosition(self)

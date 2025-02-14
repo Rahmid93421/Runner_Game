@@ -23,6 +23,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208482, 0.424409, 0 )
 shape = SubResource( 2 )
 
+[node name="KinematicBody" type="KinematicBody" parent="siege_balista_no_arraow"]
+
+[node name="CollisionShape" type="CollisionShape" parent="siege_balista_no_arraow/KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208482, 0.424409, 0 )
+shape = SubResource( 2 )
+
 [node name="siege_balista_arrow" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 6.495, 0 )
 
@@ -30,6 +36,11 @@ transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 6.495,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528476, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="siege_balista_arrow/Area"]
+shape = SubResource( 1 )
+
+[node name="KinematicBody" type="KinematicBody" parent="siege_balista_arrow"]
+
+[node name="CollisionShape" type="CollisionShape" parent="siege_balista_arrow/KinematicBody"]
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="siege_balista_no_arraow/Area" to="." method="_on_Area_body_entered"]

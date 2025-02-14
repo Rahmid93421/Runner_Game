@@ -211,7 +211,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Spatial/Camera/KinematicBody:translation")
+tracks/0/path = NodePath("Spatial/Camera/CameraBody:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -415,7 +415,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=16]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Spatial/Camera/KinematicBody:translation")
+tracks/0/path = NodePath("Spatial/Camera/CameraBody:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -539,9 +539,9 @@ script = ExtResource( 2 )
 movePlayer = 0
 rotationPlayerX = -30
 
-[node name="KinematicBody" type="KinematicBody" parent="Spatial/Camera"]
+[node name="CameraBody" type="KinematicBody" parent="Spatial/Camera"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Spatial/Camera/KinematicBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/Camera/CameraBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20077, -0.564382 )
 shape = SubResource( 1 )
 
