@@ -3,6 +3,7 @@ extends Spatial
 
 onready var straightPlatforms = [preload("res://scenes/game/maps/Map_1.tscn"), preload("res://scenes/game/maps/Map_2.tscn"), preload("res://scenes/game/maps/Map_3.tscn")]
 onready var rng = RandomNumberGenerator.new()
+onready var parentNode = get_parent().get_parent()
 
 var platformsInstances = []
 var currentDistance = 0
@@ -33,3 +34,6 @@ func _updatePosition(instance):
 	match currentDirection:
 		"z":
 			nextPosition.z += 15
+
+func _playerPunched():
+	parentNode._game_over()

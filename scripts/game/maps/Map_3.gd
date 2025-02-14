@@ -5,6 +5,7 @@ onready var parentNode = get_parent()
 onready var starPoint = preload("res://scenes/game/maps/props/StarPoint.tscn")
 onready var rocksObstacle = preload("res://scenes/game/maps/props/Rocks.tscn")
 onready var balistaObstacle = preload("res://scenes/game/maps/props/Balista.tscn")
+onready var zombie = preload("res://scenes/game/maps/props/zombie.tscn")
 
 onready var areaColision = $"wall-narrow-gate 2"
 
@@ -52,7 +53,11 @@ func _generate_points():
 					print("Balista created")
 					instance = balistaObstacle.instance()
 				else:
-					instance = rocksObstacle.instance()
+					if(type > 50 && type <= 75):
+						print("Spawn zombie")
+						instance = zombie.instance()
+					else:
+						instance = rocksObstacle.instance()
 			instance.position = positionPoint
 			self.add_child(instance)
 			pointsInstances.append(instance)
@@ -65,7 +70,7 @@ func _free_points_instances():
 		if(is_instance_valid(i)):
 			i.queue_free()
 	pointsInstances.empty()
-	positionPoint = Vector3(-0.2, 0, -7.5)
+	positionPoint = Vector3(0.2, 0, -7.5)
 
 func _on_Area_body_entered(body):
 	if(body.name == "KinematicBody"):
