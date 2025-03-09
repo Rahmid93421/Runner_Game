@@ -17,6 +17,7 @@ var dataDict = {
 	3: {"toolcrate": 0, "skincrate": 0, "trapcrate": 0, "energybottle": 0 }, # inventory, weapons: [["name", "durability", "value"]]
 	20: {
 			"blasters": { 
+				#           L  P  I  =>   LEVEL | POWER | ITEMS
 				"8L4573R": [0, 0, 0],
 				"8L4572R": [0, 0, 0],
 				"8L4571R": [0, 0, 0],
@@ -29,10 +30,24 @@ var dataDict = {
 				
 			}
 		},
+	21: "default",
 	4: 0, # powerlevel
 	6: "skins: {}", # fake skins value
 	8: 5 # energy
 }
+
+var defaultRates = {
+	# fire rate, spread, bullets number, damage
+	"default": {"firerate": 1.35, "spread": 1, "bullets": 1, "damage": 30},
+	"8L4573R": {"firerate": 0.65, "spread": .5, "bullets": 4, "damage": 50}, # shotgun laser
+	"8L4572R": {"firerate": 0.8, "spread": 1, "bullets": 1, "damage": 135}, # bomb launcher (area damage)
+	"8L4571R": {"firerate": 1.55, "spread": .5, "bullets": 6, "damage": 90}, # dual shotgun
+	"8L4570R": {"firerate": .5, "spread": 1, "bullets": 1, "damage": 35}, # smg like
+	"8L4574R": {"firerate": .6, "spread": 1, "bullets": 1, "damage": 25}, # smg like
+	"8L4575R": {"firerate": .45, "spread": 1, "bullets": 1, "damage": 10}, # smg like
+	"8L4576R": {"firerate": .95, "spread": 1, "bullets": 1, "damage": 40} # rifle
+}
+
 var saveGamePath = "user://saveGame.save";
 var maxEnergy = 5
 
@@ -47,12 +62,19 @@ func _checkIfSaveFileExists():
 	if(file.file_exists(saveGamePath)):
 		return true
 	return false
+	
+func _getRate():
+	return defaultRates[dataDict[21]]
 
 func _saveToFile():
 	var file = File.new();
 	file.open(saveGamePath, File.WRITE);
 	file.store_var(dataDict);
 	file.close();
+	
+func _setBlaster(item):
+	dataDict[21] = item;
+	_saveToFile()
 	
 func _tollCrateOpenedItemSave(item):
 	dataDict[20]['blasters'][item][2] += 1

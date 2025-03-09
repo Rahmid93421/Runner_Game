@@ -88,6 +88,7 @@ func _buildItems():
 		if(inventory[name] > 0):
 			itemsNodeChildren[itemx].visible = true
 			itemsNodeChildren[itemx].item = name
+			itemsNodeChildren[itemx].get_stylebox("panel").border_color = "e8c213"
 			itemsNodeChildren[itemx].get_node("TextureRect").texture = texturesDict[name]
 			itemsNodeChildren[itemx].get_node("RichTextLabel").bbcode_text = "[center]" + naming[name] + "[/center]"
 			itemsNodeChildren[itemx].get_node("RichTextLabel2").bbcode_text = "[center] x" + str(inventory[name]) + "[/center]"
@@ -150,6 +151,7 @@ func _on_Button4_pressed():
 	animNodeInfoPanel.play("GetSmall")
 	finishedOpening = true
 	rollBar._revertItems()
+	infoPanelActive = false
 	
 func _useToolCrate():
 	parentNode._useToolCrate()
@@ -157,6 +159,9 @@ func _useToolCrate():
 func _getData():
 	inventory = get_parent()._getInventory()
 	items = get_parent()._getItemData()
+	
+func _setBlaster(item):
+	parentNode._setBlaster(item)
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "FadOut"):

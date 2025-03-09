@@ -99,7 +99,7 @@ custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]NOW LOADING...[/center]"
-text = "[center]NOW LOADING...[/center]"
+text = "NOW LOADING..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 autoplay = "StartIntro"

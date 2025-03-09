@@ -58,7 +58,6 @@ func _on_Shop_pressed():
 	actionPressed = "shop"
 	
 func _on_Inventory_pressed():
-	# inventoryNodeAnim.play("FadIn")
 	animationNode.play("OutroAnim")
 	actionPressed = "inventory"
 	
@@ -77,7 +76,6 @@ func _energyBottlePopped():
 	
 func _useToolCrate():
 	parentNode._useToolCrate()
-
 
 func _on_Item3_mouse_entered():
 	pass # Replace with function body.

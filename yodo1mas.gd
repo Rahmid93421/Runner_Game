@@ -13,7 +13,7 @@ enum BannerAlign {
 
 # signals
 signal banner_ad_loaded()
-signal banner_ad_failed_to_loaded()
+#signal banner_ad_failed_to_loaded()
 signal banner_ad_opened()
 signal banner_ad_failed_to_open()
 signal banner_ad_closed()

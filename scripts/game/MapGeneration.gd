@@ -7,7 +7,7 @@ onready var parentNode = get_parent().get_parent()
 
 var platformsInstances = []
 var currentDistance = 0
-var maxPlatforms = 3
+var maxPlatforms = 4
 var currentDirection = null
 var nextPosition = Vector3(0, 0, 0)
 

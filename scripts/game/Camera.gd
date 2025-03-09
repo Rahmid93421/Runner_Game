@@ -7,7 +7,7 @@ onready var animationPlayer2 = $"../../AnimationPlayer2"
 onready var gameWorldNode = get_parent().get_parent()
 
 export var movePlayer = 0.0
-export var jumpPlayerY = -0.941
+export var jumpPlayerY = -0.35
 export var rotationPlayerX = 0
 
 var touch_start_position = Vector2()
@@ -16,6 +16,7 @@ var jumpFinished = true
 var playerLane = "center"
 var turningLane = false
 var playOutro = false
+var moveSpeed = 2
 
 func _ready():
 	playerAnimation.connect("animation_finished", self, "_on_model_animation_finished")
@@ -25,7 +26,7 @@ func _ready():
 
 func _process(delta):
 	if(gameWorldNode.gameOver == false):
-		self.position.z += 2 * delta
+		self.position.z += moveSpeed * delta
 		playerNode.position.x = movePlayer
 		playerNode.position.y = jumpPlayerY
 		playerNode.rotation_degrees.x = rotationPlayerX
@@ -76,6 +77,7 @@ func _on_swipe_right():
 			animationPlayer.play("GoRightFromLeft")
 			playerLane = "center"
 			turningLane = true
+		gameWorldNode._laneChanged(playerLane)
 
 func _on_swipe_left():
 	if(turningLane == false):
@@ -87,6 +89,7 @@ func _on_swipe_left():
 			animationPlayer.play("GoLeftFromRight")
 			playerLane = "center"
 			turningLane = true
+		gameWorldNode._laneChanged(playerLane)
 
 func _on_swipe_up():
 	if(jumpFinished == true):

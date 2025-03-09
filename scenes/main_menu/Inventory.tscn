@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/misc/username_coins_panel.tres" type="StyleBox" id=2]
@@ -1314,6 +1314,22 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="DynamicFont" id=89]
+size = 24
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=90]
+size = 24
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=80]
 size = 28
 outline_size = 5
@@ -1333,6 +1349,32 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=86]
+size = 32
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=87]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id=88]
+bg_color = Color( 0.752941, 0.0470588, 0.0470588, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
 
 [sub_resource type="Animation" id=17]
 resource_name = "FadIn"
@@ -2266,7 +2308,7 @@ text = "ITEM NAME"
 anchor_left = 0.347
 anchor_top = 0.173
 anchor_right = 0.653
-anchor_bottom = 0.545
+anchor_bottom = 0.533
 margin_left = -0.0449982
 margin_top = 5.23801
 margin_right = 0.0450134
@@ -2759,6 +2801,7 @@ margin_right = 2.5
 margin_bottom = 3.618
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
+visible = false
 anchor_left = 0.218
 anchor_top = 0.857
 anchor_right = 0.487
@@ -2772,6 +2815,36 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = SubResource( 31 )
 text = "OPEN"
+
+[node name="Upgrade" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
+anchor_left = 0.041
+anchor_top = 0.857
+anchor_right = 0.467
+anchor_bottom = 0.953
+margin_left = -0.0940018
+margin_top = -0.0579834
+margin_right = 0.221985
+margin_bottom = -0.0820313
+custom_fonts/font = SubResource( 89 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 31 )
+text = "UPGRADE  9999/999999"
+
+[node name="Use" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
+anchor_left = 0.533
+anchor_top = 0.857
+anchor_right = 0.959
+anchor_bottom = 0.953
+margin_left = -0.222046
+margin_top = -0.0579834
+margin_right = 0.0939331
+margin_bottom = -0.0820313
+custom_fonts/font = SubResource( 90 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = SubResource( 31 )
+text = "USE  BLASTER"
 
 [node name="Button4" type="Button" parent="CanvasLayer/Panel/InfoPanel"]
 anchor_left = 0.218
@@ -2789,6 +2862,90 @@ custom_styles/hover = ExtResource( 4 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/normal = SubResource( 81 )
 text = "CLOSE"
+
+[node name="BlasterInfo" type="Control" parent="CanvasLayer/Panel/InfoPanel"]
+visible = false
+anchor_left = 0.045
+anchor_top = 0.483
+anchor_right = 0.966
+anchor_bottom = 0.847
+margin_left = -0.0300026
+margin_top = 61.098
+margin_right = -0.0440063
+margin_bottom = -0.118011
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo"]
+anchor_left = -0.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.296
+margin_top = 4.0
+margin_right = -5.0
+margin_bottom = -6.0
+color = Color( 0.156863, 0.156863, 0.156863, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo"]
+anchor_left = 0.016
+anchor_top = 0.079
+anchor_right = 0.969
+anchor_bottom = 0.912
+margin_left = 0.183999
+margin_top = -0.0640011
+margin_right = -0.0440063
+margin_bottom = 0.00798035
+color = Color( 0, 0, 0, 1 )
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo"]
+anchor_left = 0.3
+anchor_top = 0.144
+anchor_right = 0.701
+anchor_bottom = 0.387
+margin_left = 0.199997
+margin_top = -0.32
+margin_right = 0.123962
+margin_bottom = 0.0149956
+custom_fonts/normal_font = SubResource( 86 )
+bbcode_enabled = true
+bbcode_text = "[center]BLASTER INFO[/center]"
+text = "BLASTER INFO"
+scroll_active = false
+
+[node name="Level" type="RichTextLabel" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo"]
+anchor_left = 0.007
+anchor_top = 0.5
+anchor_right = 0.226
+anchor_bottom = 0.768
+margin_left = 0.268
+margin_top = 1.5
+margin_right = 0.223999
+margin_bottom = -0.0400009
+custom_fonts/normal_font = SubResource( 86 )
+bbcode_enabled = true
+bbcode_text = "[center]LEVEL[/center]"
+text = "LEVEL"
+scroll_active = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo"]
+anchor_left = 0.418
+anchor_top = 0.5
+anchor_right = 0.907
+anchor_bottom = 0.5
+margin_left = 0.0469971
+margin_top = 3.32001
+margin_right = 0.0325928
+margin_bottom = 37.32
+custom_styles/panel = SubResource( 87 )
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Panel/InfoPanel/BlasterInfo/Panel"]
+anchor_left = 0.013
+anchor_top = 0.118
+anchor_right = 0.988
+anchor_bottom = 0.882
+margin_left = -0.303
+margin_top = -0.0120001
+margin_right = -300.0
+margin_bottom = 0.0119991
+custom_styles/panel = SubResource( 88 )
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -2832,6 +2989,8 @@ shape = SubResource( 83 )
 [connection signal="animation_started" from="CanvasLayer/Panel/InfoPanel/AnimationPlayer" to="CanvasLayer/Panel/InfoPanel" method="_on_AnimationPlayer_animation_started"]
 [connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button3" to="." method="_on_Button3_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button" to="CanvasLayer/Panel/InfoPanel" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Upgrade" to="CanvasLayer/Panel/InfoPanel" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Use" to="CanvasLayer/Panel/InfoPanel" method="_on_Use_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/InfoPanel/Button4" to="." method="_on_Button4_pressed"]
 [connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="CanvasLayer/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

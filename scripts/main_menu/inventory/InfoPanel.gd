@@ -8,6 +8,9 @@ onready var itemName = $RichTextLabel
 onready var parentNode = get_parent().get_parent().get_parent()
 onready var rollBar = $Control2
 onready var initialization = true
+onready var openButton = $Button
+onready var upgradeButton = $Upgrade
+onready var useButton = $Use
 
 onready var texturesItems = {
 	"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
@@ -57,7 +60,11 @@ onready var items = {
 	"8L4576R": []
 }
 
+onready var powerStats = $BlasterInfo
+
 var panelsChildren
+var staticUpgradeLevel = 5
+var multiplierPerLevel = 5
 
 func _ready():
 	panelsChildren = panels.get_children()
@@ -67,6 +74,18 @@ func _hideChildren():
 		child.hide()
 
 func _loadData():
+	if(item != "skincrate" && item != "energybottle" && item != "trapcrate" && item != "toolcrate"):
+		powerStats.visible = true
+		openButton.hide()
+		upgradeButton.visible = true
+		useButton.visible = true
+		
+		upgradeButton.text = "UPGRADE   " + str(parentNode.items['blasters'][item][2]-1) + "/" + str(parentNode.items['blasters'][item][0] * multiplierPerLevel * staticUpgradeLevel + staticUpgradeLevel)
+	else:
+		powerStats.hide()
+		upgradeButton.hide()
+		useButton.hide()
+		openButton.visible = true
 	_hideChildren()
 	textureRect.texture = texturesItems[item]
 	
@@ -118,3 +137,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "GetSmall" and parentNode.finishedOpening == true):
 		$AnimationPlayer.play("RevertOpenCaseo")
 		parentNode.finishedOpening = false
+
+
+func _on_Use_pressed():
+	parentNode._setBlaster(item)

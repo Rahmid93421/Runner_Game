@@ -7,12 +7,15 @@ onready var rocksObstacle = preload("res://scenes/game/maps/props/Rocks.tscn")
 onready var balistaObstacle = preload("res://scenes/game/maps/props/Balista.tscn")
 onready var zombie = preload("res://scenes/game/maps/props/zombie.tscn")
 
-onready var areaColision = $"wall-narrow-gate 2"
-
 var positionPoint = Vector3(0.2, 0, -7.5)
 var distPoint = 1.0
 var endZAxis = 7.5
 var pointsInstances = []
+
+var pointChance = 80
+var balistaChance = 25
+var zombieChance = 50
+var rockChance = 100
 
 func _ready():
 	_generate_points_clean()
@@ -37,7 +40,7 @@ func _generate_points_clean():
 
 func _generate_points():
 	while(positionPoint.z < endZAxis):
-		var currentLinePoints = parentNode._rng_number_params(2, 3)
+		var currentLinePoints = parentNode._rng_number_params(1, 3)
 		if(positionPoint.z <= 0 && positionPoint.z >= -1):
 			currentLinePoints = 1
 		if(positionPoint.z >= 3 && positionPoint.z <= 4.3):
@@ -45,17 +48,18 @@ func _generate_points():
 		for _i in currentLinePoints:
 			var chance = parentNode._rng_number_params(1, 100)
 			var instance = null
-			if(chance > 25):
+			if(chance < pointChance):
 				instance = starPoint.instance()
 			else:
 				var type = parentNode._rng_number_params(1, 100)
-				if(type > 75): # 25% chance for a balista
+				if(type < balistaChance):
 					print("Balista created")
 					instance = balistaObstacle.instance()
 				else:
-					if(type > 50 && type <= 75):
+					if(type < zombieChance):
 						print("Spawn zombie")
 						instance = zombie.instance()
+						instance.position.y = 1.18
 					else:
 						instance = rocksObstacle.instance()
 			instance.position = positionPoint
