@@ -8,6 +8,10 @@ onready var itemName = $RichTextLabel
 onready var parentNode = get_parent().get_parent().get_parent()
 onready var animationPlayer = $AnimationPlayer
 onready var rollBar = $Control2
+onready var audioPlayer = $"../AudioStreamPlayer2D"
+onready var mainAnimPlayer = $"../../AnimationPlayer"
+
+onready var checkOut = preload("res://assets/sounds/cashier-quotka-chingquot-sound-effect-129698.mp3")
 
 onready var texturesItems = {
 	"toolcrate": preload("res://assets/sprites/shop/items/crate.png"),
@@ -65,16 +69,26 @@ func _on_AnimationPlayer_animation_started(anim_name):
 	if(anim_name == "GetBig"):
 		_loadData()
 	if(anim_name == "OpenCaseo"):
+		audioPlayer.stop()
+		audioPlayer.stream = checkOut
+		audioPlayer.play()
 		rollBar.type = item
 		rollBar._setItemsSprites()
 
 func _on_buy_pressed():
 	parentNode.infoPanelActive = false
 	parentNode._addToInventory(item)
+	audioPlayer.stop()
+	audioPlayer.stream = checkOut
+	audioPlayer.play()
 
 func _on_Button_pressed():
+	print("Buy + open")
 	if(item == "toolcrate"):
-		animationPlayer.play("OpenCaseo")
+		print("Play open caseo")
+		animationPlayer.stop(true)
+		mainAnimPlayer.play("OpenCaseo")
+		parentNode.startRolling = true
 	if(item == "energybottle"):
 		parentNode._energyBottlePopped()
 	
@@ -83,6 +97,7 @@ func _playResetOpenCaseo():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "OpenCaseo"):
+		print("Open animation finished")
 		rollBar._rollTheBar()
 	if(anim_name == "GetSmall" and parentNode.finishOpening == true):
 		animationPlayer.play("RevertOpenCaseo")

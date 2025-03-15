@@ -1,0 +1,205 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/game/maps/props/Bullet_Splash_6.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.0392157, 0.431373, 0.431373, 1 )
+metallic_specular = 0.4
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.882353, 0.423529, 0.196078, 0.196078 )
+
+[sub_resource type="CylinderMesh" id=3]
+material = SubResource( 5 )
+top_radius = 0.45
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.31596, 0.139146, 0.0118206 )
+
+[sub_resource type="CapsuleShape" id=4]
+radius = 0.25312
+height = 0.002
+
+[node name="Bullet" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.0170561, 0, 0, 0, 0.0157918, 0, 0, 0, 0.0287298, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="MeshInstance"]
+transform = Transform( 0.789118, 0, 0, 0, -5.69528e-08, -1.30293, 0, 0.854244, -3.73402e-08, 0.0134665, -0.0656429, -1.24499 )
+amount = 4
+mesh = SubResource( 3 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 5.0
+
+[node name="Area" type="Area" parent="MeshInstance"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/Area"]
+shape = SubResource( 6 )
+
+[node name="Bullet" type="KinematicBody" parent="MeshInstance"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance/Bullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0178107 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.0170561, 0, 0, 0, 0.0157918, 0, 0, 0, 0.0287298, -0.06, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="MeshInstance3"]
+transform = Transform( 0.789118, 0, 0, 0, -5.69528e-08, -1.30293, 0, 0.854244, -3.73402e-08, 0.0134665, -0.0656429, -1.24499 )
+amount = 4
+mesh = SubResource( 3 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 5.0
+
+[node name="Area" type="Area" parent="MeshInstance3"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance3/Area"]
+shape = SubResource( 6 )
+
+[node name="Bullet" type="KinematicBody" parent="MeshInstance3"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance3/Bullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0178107 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 0.0170561, 0, 0, 0, 0.0157918, 0, 0, 0, 0.0287298, -0.0291481, 0, -0.117347 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="MeshInstance4"]
+transform = Transform( 0.789118, 0, 0, 0, -5.69528e-08, -1.30293, 0, 0.854244, -3.73402e-08, 0.0134665, -0.0656429, -1.24499 )
+amount = 4
+mesh = SubResource( 3 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 5.0
+
+[node name="Area" type="Area" parent="MeshInstance4"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance4/Area"]
+shape = SubResource( 6 )
+
+[node name="Bullet" type="KinematicBody" parent="MeshInstance4"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance4/Bullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0178107 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.0170561, 0, 0, 0, 0.0157918, 0, 0, 0, 0.0287298, 0.06, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="MeshInstance2"]
+transform = Transform( 0.789118, 0, 0, 0, -5.69528e-08, -1.30293, 0, 0.854244, -3.73402e-08, 0.0134665, -0.0656429, -1.24499 )
+amount = 4
+mesh = SubResource( 3 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 5.0
+
+[node name="Area" type="Area" parent="MeshInstance2"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/Area"]
+shape = SubResource( 6 )
+
+[node name="Bullet" type="KinematicBody" parent="MeshInstance2"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance2/Bullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0178107 )
+shape = SubResource( 4 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 0.0170561, 0, 0, 0, 0.0157918, 0, 0, 0, 0.0287298, 0.0308018, 0, -0.117991 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CPUParticles" type="CPUParticles" parent="MeshInstance5"]
+transform = Transform( 0.789118, 0, 0, 0, -5.69528e-08, -1.30293, 0, 0.854244, -3.73402e-08, 0.0134665, -0.0656429, -1.24499 )
+amount = 4
+mesh = SubResource( 3 )
+initial_velocity = 1.0
+initial_velocity_random = 1.0
+angular_velocity = -720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+radial_accel = 5.0
+radial_accel_random = 1.0
+tangential_accel = 5.0
+tangential_accel_random = 1.0
+damping = 5.0
+
+[node name="Area" type="Area" parent="MeshInstance5"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance5/Area"]
+shape = SubResource( 6 )
+
+[node name="Bullet" type="KinematicBody" parent="MeshInstance5"]
+transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="MeshInstance5/Bullet"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0178107 )
+shape = SubResource( 4 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0344771 )
+
+[connection signal="body_entered" from="MeshInstance/Area" to="." method="_on_Area_body_entered"]
+[connection signal="body_entered" from="MeshInstance3/Area" to="." method="_on_Area2_body_entered"]
+[connection signal="body_entered" from="MeshInstance4/Area" to="." method="_on_Area3_body_entered"]
+[connection signal="body_entered" from="MeshInstance2/Area" to="." method="_on_Area4_body_entered"]
+[connection signal="body_entered" from="MeshInstance5/Area" to="." method="_on_Area5_body_entered"]

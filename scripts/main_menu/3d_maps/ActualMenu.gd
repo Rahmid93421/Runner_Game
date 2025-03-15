@@ -8,6 +8,8 @@ onready var characterNodeAnim = $Environment/character_animations/AnimationPlaye
 onready var userNameLabel = $UserInterface/Panel/Username
 onready var coinsLabel = $UserInterface/Panel/Currency
 onready var energyLabel = $UserInterface/Panel/Panel/Energy
+onready var audioPlayer = $AudioStreamPlayer2D
+onready var audioPlayer2 = $AudioStreamPlayer2D2
 
 var actionPressed = null
 var energyAvailable = null
@@ -36,10 +38,13 @@ func _on_Play_pressed():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "OutroAnim"):
 		animationNode.play("MakePlayerRun")
+		audioPlayer2.play()
 		$Environment/idle2.hide()
 		characterNode.visible = true
 		characterNodeAnim.play("Root|mixamocom|Layer0")
+		audioPlayer.play()
 	if(anim_name == "MakePlayerRun"):
+		audioPlayer2.stop()
 		characterNodeAnim.get_animation("Root|mixamocom|Layer0004").loop = true
 		characterNodeAnim.play("Root|mixamocom|Layer0004")
 		animationNode.play("RealOutro")
@@ -79,3 +84,7 @@ func _useToolCrate():
 
 func _on_Item3_mouse_entered():
 	pass # Replace with function body.
+
+func _on_AnimationPlayer_animation_started(anim_name):
+	if(anim_name == "RealOutro"):
+		parentNode._fadeOutMusicMenu()

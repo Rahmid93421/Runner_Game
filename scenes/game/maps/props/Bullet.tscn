@@ -50,7 +50,6 @@ damping = 5.0
 transform = Transform( 4.73074, 0, 0, 0, 6.22548, 0, 0, 0, 6.52775, 0, 0, -2.10828 )
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 6 )
 
 [node name="Bullet" type="KinematicBody" parent="MeshInstance"]

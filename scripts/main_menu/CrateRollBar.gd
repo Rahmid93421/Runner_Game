@@ -18,6 +18,10 @@ onready var origPositions = [
 	$Panel9.rect_position
 ]
 
+onready var audioPlayer = $"../../AudioStreamPlayer2D"
+onready var rollingSound = preload("res://assets/sounds/rolling-roll.mp3")
+onready var clapSound = preload("res://assets/sounds/hand-clap-with-together-sound-effect-263698.mp3")
+
 onready var textures = {
 	"toolcrate": [
 		{"skin": preload("res://assets/sprites/shop/guns/blasterG.png"), "name": "8L4573R"},
@@ -81,8 +85,11 @@ func _process(delta):
 					expSpeed += 10 * delta
 			if(expSpeed - 10 * delta <= 0):
 				finishedRolling = true
+				audioPlayer.stop()
 		else:
 			if(finishedRolling == true):
+				audioPlayer.stream = clapSound
+				audioPlayer.play()
 				startRolling = false
 				finishedRolling = false
 				expSpeed = 10
@@ -92,6 +99,7 @@ func _process(delta):
 				print(goodItem.name)
 				shopParent._saveOpenedItem(goodItem.name)
 				shopParent.finishOpening = true
+				shopParent.startRolling = false
 
 func _rng_number_params(minimum, maximum):
 	rng.randomize()
@@ -122,3 +130,6 @@ func _rollTheBar():
 		goodItem = null
 		speed = 40 + _rng_number_params(-5, 5)
 		expSpeed = speed + _rng_number_params(-5, 5)
+		audioPlayer.stop()
+		audioPlayer.stream = rollingSound
+		audioPlayer.play()

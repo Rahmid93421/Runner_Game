@@ -6,25 +6,32 @@ onready var infoPanelAnim = $CanvasLayer/Panel/InfoPanel/AnimationPlayer
 onready var rollBar = $CanvasLayer/Panel/InfoPanel/Control2
 onready var infoPanel = $CanvasLayer/Panel/InfoPanel
 onready var coinsLabel = $CanvasLayer/Panel/Title2
+onready var audioPlayer = $CanvasLayer/Panel/AudioStreamPlayer2D
+onready var checkOut = preload("res://assets/sounds/cashier-quotka-chingquot-sound-effect-129698.mp3")
 
 var infoPanelActive = false
 var finishOpening = false
+var startRolling = false
 
 func _ready():
 	_update_label()
 
 func _on_Button3_pressed():
-	if(infoPanelActive == false):
-		animationPlayerNode.play("FadOut")
-	else:
-		infoPanelActive = false
-		infoPanelAnim.play("GetSmall")
+	if(startRolling == false):
+		if(infoPanelActive == false):
+			animationPlayerNode.play("FadOut")
+			parentNode._fadeOutMusic()
+		else:
+			infoPanelActive = false
+			infoPanelAnim.play("GetSmall")
+		audioPlayer.stop()
 
 func _on_Button4_pressed():
 	infoPanelAnim.play("GetSmall")
 	finishOpening = true
 	infoPanelActive = false
 	rollBar._revertItems()
+	audioPlayer.stop()
 	
 func _update_coins_value():
 	return parentNode._getCoins()
@@ -72,3 +79,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "FadOut"):
 		parentNode._load_actual_menu()
 		self.queue_free()
+	if(anim_name == "OpenCaseo"):
+		print("Open animation finished")
+		rollBar._rollTheBar()

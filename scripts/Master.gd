@@ -8,6 +8,9 @@ onready var yodoNode = $Yodo1Mas
 onready var yodoInitialized = false
 onready var audioPlayer = $AudioStreamPlayer
 onready var actualMainMenu = preload("res://scenes/main_menu/ActualMenu.tscn")
+onready var mainMenuMusic = preload("res://assets/sounds/Juhani Junkala [Retro Game Music Pack] Ending.wav")
+onready var gameMusic = preload("res://assets/sounds/Juhani Junkala [Retro Game Music Pack] Title Screen.wav")
+onready var animationPlayer = $AnimationPlayer
 
 var dataDict = {
 	7: "powerlevel: 0", # fake powerlevel
@@ -39,7 +42,7 @@ var dataDict = {
 var defaultRates = {
 	# fire rate, spread, bullets number, damage
 	"default": {"firerate": 1.35, "spread": 1, "bullets": 1, "damage": 30},
-	"8L4573R": {"firerate": 0.65, "spread": .5, "bullets": 4, "damage": 50}, # shotgun laser
+	"8L4573R": {"firerate": 0.65, "spread": .5, "bullets": 3, "damage": 50}, # shotgun laser
 	"8L4572R": {"firerate": 0.8, "spread": 1, "bullets": 1, "damage": 135}, # bomb launcher (area damage)
 	"8L4571R": {"firerate": 1.55, "spread": .5, "bullets": 6, "damage": 90}, # dual shotgun
 	"8L4570R": {"firerate": .5, "spread": 1, "bullets": 1, "damage": 35}, # smg like
@@ -142,15 +145,24 @@ func _load_inventory():
 
 func _load_game():
 	if(_checkEnergy() > 0):
+		audioPlayer.stop()
+		audioPlayer.stream = gameMusic
+		audioPlayer.play()
+		animationPlayer.play("MusicFadeIn")
 		_energyDecrease()
 		var instance = gameWorldNode.instance()
 		self.add_child(instance)
 
 func _load_actual_menu():
+	audioPlayer.stop()
+	audioPlayer.stream = mainMenuMusic
+	audioPlayer.play()
+	animationPlayer.play("MusicFadeIn")
 	var instance = actualMainMenu.instance()
 	self.add_child(instance)
 
 func _load_shop():
+	animationPlayer.play("MusicFadeIn")
 	var instance = shopNode.instance()
 	self.add_child(instance)
 
@@ -159,6 +171,12 @@ func _yodo_status():
 
 func _play_audio_menu():
 	audioPlayer.play()
+	
+func _fadeOutMusic():
+	animationPlayer.play("MusicFadeOut")
+	
+func _fadeOutMusicMenu():
+	animationPlayer.play("MusicFadeOutMenu")
 
 func _yodo_load_banner():
 	yodoNode.load_banner_ad("AdaptiveBanner", "RIGHT", "BOTTOM")

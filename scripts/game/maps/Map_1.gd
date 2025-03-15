@@ -21,7 +21,7 @@ func _ready():
 
 func _generate_points_clean():
 	while(positionPoint.z < endZAxis):
-		var currentLinePoints = parentNode._rng_number_params(2, 3)
+		var currentLinePoints = parentNode._rng_number_params(1, 3)
 		for _i in currentLinePoints:
 #			var chance = parentNode._rng_number_params(1, 100)
 			var instance = null

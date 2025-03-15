@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hand-clap-with-together-sound-effect-263698.mp3-33e4719b123ac5d2d7d57d221c0f537a.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/hand-clap-with-together-sound-effect-263698.mp3"
+dest_files=[ "res://.import/hand-clap-with-together-sound-effect-263698.mp3-33e4719b123ac5d2d7d57d221c0f537a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
