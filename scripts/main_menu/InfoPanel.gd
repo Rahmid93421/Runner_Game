@@ -7,6 +7,7 @@ onready var panels = $Control
 onready var itemName = $RichTextLabel
 onready var parentNode = get_parent().get_parent().get_parent()
 onready var animationPlayer = $AnimationPlayer
+onready var animationPlayer2 = $AnimationPlayer2
 onready var rollBar = $Control2
 onready var audioPlayer = $"../AudioStreamPlayer2D"
 onready var mainAnimPlayer = $"../../AnimationPlayer"
@@ -86,6 +87,7 @@ func _on_Button_pressed():
 	print("Buy + open")
 	if(item == "toolcrate"):
 		print("Play open caseo")
+		parentNode.thingsReverted = false
 		animationPlayer.stop(true)
 		mainAnimPlayer.play("OpenCaseo")
 		parentNode.startRolling = true
@@ -93,7 +95,7 @@ func _on_Button_pressed():
 		parentNode._energyBottlePopped()
 	
 func _playResetOpenCaseo():
-	animationPlayer.play("RevertOpenCaseo")
+	animationPlayer2.play("RevertOpenCaseo")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "OpenCaseo"):
@@ -102,3 +104,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "GetSmall" and parentNode.finishOpening == true):
 		animationPlayer.play("RevertOpenCaseo")
 		parentNode.finishOpening = false
+	if(anim_name == "RevertOpenCaseo"):
+		parentNode.thingsReverted = true

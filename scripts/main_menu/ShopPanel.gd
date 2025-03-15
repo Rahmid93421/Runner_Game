@@ -12,6 +12,7 @@ onready var checkOut = preload("res://assets/sounds/cashier-quotka-chingquot-sou
 var infoPanelActive = false
 var finishOpening = false
 var startRolling = false
+var thingsReverted = false
 
 func _ready():
 	_update_label()
@@ -43,6 +44,7 @@ func _update_label():
 	coinsLabel.bbcode_text = "[center] COINS: " + str(_update_coins_value()) + " | ENERGY: " + str(_update_energy_value()) + "[/center]"
 
 func _on_Item1_mouse_entered():
+	infoPanel._playResetOpenCaseo()
 	infoPanel.item = "toolcrate"
 	infoPanelAnim.play("GetBig")
 	infoPanelActive = true
@@ -53,6 +55,7 @@ func _on_Item2_mouse_entered():
 	infoPanelActive = true
 
 func _on_Item3_mouse_entered():
+	infoPanel._playResetOpenCaseo()
 	infoPanel.item = "energybottle"
 	infoPanelAnim.play("GetBig")
 	infoPanelActive = true
