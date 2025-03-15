@@ -1,4 +1,3 @@
-tool
 extends Spatial
 
 onready var parentNode = get_parent()
@@ -14,7 +13,7 @@ var pointsInstances = []
 
 var pointChance = 80
 var balistaChance = 25
-var zombieChance = 50
+var zombieChance = 90
 var rockChance = 100
 
 func _ready():
@@ -51,6 +50,9 @@ func _generate_points():
 					if(type < zombieChance):
 						print("Spawn zombie")
 						instance = zombie.instance()
+						if(positionPoint.x == 0):
+							var scaleVar = parentNode._rng_number_params(0.7, 4.5)
+							instance.scale = Vector3(scaleVar, scaleVar, scaleVar)
 						instance.position.y = 1.18
 					else:
 						instance = rocksObstacle.instance()
@@ -73,3 +75,6 @@ func _on_Area_body_entered(body):
 		_free_points_instances()
 		_generate_points()
 		parentNode._updatePosition(self)
+		
+func _playerPunched():
+	parentNode._playerPunched()

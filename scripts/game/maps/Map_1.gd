@@ -11,9 +11,9 @@ var distPoint = 1.0
 var endZAxis = 7.5
 var pointsInstances = []
 
-var pointChance = 80
-var balistaChance = 25
-var zombieChance = 50
+var pointChance = 60
+var balistaChance = 40
+var zombieChance = 90
 var rockChance = 100
 
 func _ready():
@@ -50,6 +50,9 @@ func _generate_points():
 					if(type < zombieChance):
 						print("Spawn zombie")
 						instance = zombie.instance()
+						if(positionPoint.x == 0):
+							var scaleVar = parentNode._rng_number_params(0.7, 4.5)
+							instance.scale = Vector3(scaleVar, scaleVar, scaleVar)
 						instance.position.y = 1.18
 					else:
 						instance = rocksObstacle.instance()

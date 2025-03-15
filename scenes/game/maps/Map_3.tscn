@@ -16,10 +16,28 @@ script = ExtResource( 5 )
 transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0 )
 
 [node name="wall 2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6.52648, 0, 0, -4.25065 )
+transform = Transform( 0.998, 0, 0, 0, 0.998, 0, 0, 0, 6.515, 0, 0, -4.25065 )
+
+[node name="OmniLight" type="OmniLight" parent="wall 2"]
+transform = Transform( 1.002, 0, 0, 0, 1.002, 0, 0, 0, 0.153492, -0.00747108, 2.43854, -0.185403 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
+
+[node name="OmniLight2" type="OmniLight" parent="wall 2"]
+transform = Transform( 1.002, 0, 0, 0, 1.002, 0, 0, 0, 0.153492, 0.00233364, 2.86284, 0.610304 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
+
+[node name="OmniLight3" type="OmniLight" parent="wall 2"]
+transform = Transform( 1.002, 0, 0, 0, 1.002, 0, 0, 0, 0.153492, 0.00233364, 2.86284, 1.36314 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
 
 [node name="wall 3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 7.5362, 0, 0, 3.74978 )
+transform = Transform( 0.999, 0, 0, 0, 0.999, 0, 0, 0, 7.525, 0, 0, 3.74978 )
 
 [node name="wall 5" parent="." instance=ExtResource( 2 )]
 transform = Transform( -8.36623e-08, 0, 5.8595, 0, 1, 0, -1, 0, -1.3382e-07, -3.94185, 0, -0.580496 )

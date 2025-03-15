@@ -17,6 +17,24 @@ transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0 )
 [node name="wall 2" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0 )
 
+[node name="OmniLight" type="OmniLight" parent="wall 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0666667, 0.00233364, 2.0076, -0.325549 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
+
+[node name="OmniLight2" type="OmniLight" parent="wall 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0666667, 0.00233364, 2.4319, -0.0125286 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
+
+[node name="OmniLight3" type="OmniLight" parent="wall 2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0666667, 0.00233364, 2.4319, 0.32509 )
+light_color = Color( 0.917647, 0.658824, 0.0392157, 1 )
+light_energy = 0.55
+omni_range = 3.16516
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 3 )
 cell_size = Vector3( 0.7, 0.01, 0.75 )

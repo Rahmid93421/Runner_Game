@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/main_menu/PlayerPlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/player/new/idle.glb" type="PackedScene" id=2]
@@ -17,6 +17,38 @@
 [ext_resource path="res://assets/misc/panels_themes/UsernameRichTextLabel.tres" type="DynamicFont" id=16]
 [ext_resource path="res://assets/misc/fonts/PowerLevelRichTextLable.tres" type="DynamicFont" id=17]
 [ext_resource path="res://assets/misc/panels_themes/menu_buttons.tres" type="StyleBox" id=18]
+
+[sub_resource type="Animation" id=11]
+resource_name = "LightFlicker"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_specular")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.5, 10.0, 4.0, 0.5, 14.0, 4.5, 1.0, 8.0, 0.5 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_specular")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.5 ]
+}
 
 [sub_resource type="DynamicFont" id=10]
 size = 32
@@ -62,7 +94,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 100 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Panel2:margin_bottom")
@@ -74,7 +106,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 500.0 ]
+"values": [ 600 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Panel:margin_bottom")
@@ -560,13 +592,17 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.447, 
 transform = Transform( 0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.45, 0.17, -0.44 )
 visible = false
 
-[node name="DirectionalLight2" type="DirectionalLight" parent="Environment"]
-transform = Transform( -0.699002, -0.450117, -0.555689, -6.79326e-08, -0.777058, 0.629429, -0.715119, 0.439972, 0.543165, -1.198, 0, 0 )
-light_energy = 0.25
-light_bake_mode = 2
-light_cull_mask = 4294966273
-directional_shadow_mode = 0
-directional_shadow_blend_splits = true
+[node name="OmniLight" type="OmniLight" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.91157, 0.881888 )
+light_color = Color( 0.921569, 0.898039, 0.803922, 1 )
+light_energy = 0.75
+shadow_enabled = true
+shadow_color = Color( 0.498039, 0.454902, 0.454902, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment"]
+autoplay = "LightFlicker"
+anims/LightFlicker = SubResource( 11 )
+anims/RESET = SubResource( 12 )
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

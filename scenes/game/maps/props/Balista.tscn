@@ -46,7 +46,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208482, 0.424409, 0 )
 shape = SubResource( 2 )
 
 [node name="siege_balista_arrow" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 834.866, 6.495, 0 )
+transform = Transform( 1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, 0, 6.495, 0 )
 
 [node name="Area" type="Area" parent="siege_balista_arrow"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528476, 0, 0 )

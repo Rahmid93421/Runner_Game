@@ -4,11 +4,3 @@
 
 [node name="MapGeneration" type="Spatial"]
 script = ExtResource( 1 )
-
-[node name="DirectionalLight2" type="DirectionalLight" parent="."]
-transform = Transform( -0.699002, -0.450117, -0.555689, -6.79326e-08, -0.777058, 0.629429, -0.715119, 0.439972, 0.543165, -1.198, 0, 0 )
-light_energy = 0.25
-light_bake_mode = 2
-light_cull_mask = 4294966273
-directional_shadow_mode = 0
-directional_shadow_blend_splits = true
