@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sliding-noise-v2-83483.mp3-46dce8f943d3b0d808a644058a12b50b.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sliding-noise-v2-83483.mp3"
+dest_files=[ "res://.import/sliding-noise-v2-83483.mp3-46dce8f943d3b0d808a644058a12b50b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

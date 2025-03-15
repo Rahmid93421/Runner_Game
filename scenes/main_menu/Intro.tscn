@@ -72,7 +72,8 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ "[center]ODDO GAMES[/center]", "[center]NOW LOADING...[/center]" ]
+"values": [ "[center]THEGAMEHUB
+GAMES[/center]", "[center]NOW LOADING...[/center]" ]
 }
 
 [node name="Intro" type="Node2D"]
@@ -86,14 +87,14 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer"]
-anchor_left = 0.012
-anchor_top = 0.458
-anchor_right = 0.992
-anchor_bottom = 0.564
-margin_left = 0.36
-margin_top = -0.240051
-margin_right = -0.240051
-margin_bottom = 0.0799561
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -438.84
+margin_top = -67.4401
+margin_right = 442.56
+margin_bottom = 102.48
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true

@@ -1,0 +1,264 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/button_resource.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/misc/fonts/Signwood-vnvD7.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/main_menu/ChooseUsernamePanel.gd" type="Script" id=3]
+[ext_resource path="res://assets/misc/lineedit.tres" type="StyleBox" id=4]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.937255, 0.678431, 0.309804, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_size = 15
+
+[sub_resource type="DynamicFont" id=2]
+size = 56
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Init"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4096.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -0.400085 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4096.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.400024 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Intro"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -4096.0, 0.299995 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -0.400085, -0.400085 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -4096.0, -0.300049 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.400024, 0.400024 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.299995 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -0.400085 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -0.300049 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.400024 ]
+}
+
+[node name="ChooseUsernamePanel" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.053
+anchor_top = 0.368
+anchor_right = 0.947
+anchor_bottom = 0.659
+margin_left = 0.299995
+margin_top = -0.400085
+margin_right = -0.300049
+margin_bottom = 0.400024
+rect_pivot_offset = Vector2( 303, 205 )
+custom_styles/panel = SubResource( 8 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+anchor_left = 0.083
+anchor_top = 0.727
+anchor_right = 0.917
+anchor_bottom = 0.909
+margin_left = 0.268005
+margin_top = -0.072876
+margin_right = -0.268066
+margin_bottom = 0.0422974
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/normal = ExtResource( 1 )
+text = "PLAY"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.077
+margin_top = 38.0872
+margin_bottom = 121.087
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "[center]CHOOSE your USERNAME[/center]"
+text = "CHOOSE your USERNAME"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Panel"]
+anchor_left = 0.083
+anchor_top = 0.445
+anchor_right = 0.917
+anchor_bottom = 0.628
+margin_left = 0.267998
+margin_top = 0.151993
+margin_right = -0.268066
+margin_bottom = -0.199219
+custom_fonts/font = SubResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 4 )
+align = 1
+placeholder_text = "USERNAME"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "Init"
+anims/Init = SubResource( 9 )
+anims/Intro = SubResource( 6 )
+anims/RESET = SubResource( 7 )
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]

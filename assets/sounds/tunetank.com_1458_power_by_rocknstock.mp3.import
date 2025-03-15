@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tunetank.com_1458_power_by_rocknstock.mp3-432e789ee73a40d6ef3e3bc428fe02ca.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/tunetank.com_1458_power_by_rocknstock.mp3"
+dest_files=[ "res://.import/tunetank.com_1458_power_by_rocknstock.mp3-432e789ee73a40d6ef3e3bc428fe02ca.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
