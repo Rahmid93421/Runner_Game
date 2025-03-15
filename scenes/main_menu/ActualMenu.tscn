@@ -62,7 +62,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 100 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Panel2:margin_bottom")
@@ -74,7 +74,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 500.0 ]
+"values": [ 600 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Panel:margin_bottom")
@@ -177,7 +177,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 100 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Panel2:margin_bottom")
@@ -189,7 +189,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 500.0 ]
+"values": [ 600 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Panel:margin_bottom")
@@ -596,10 +596,10 @@ anchor_left = -0.092
 anchor_top = 0.402
 anchor_right = 0.156
 anchor_bottom = 0.402
-margin_left = -500.0
-margin_top = 559.0
-margin_right = -500.0
-margin_bottom = 1059.0
+margin_left = -417.2
+margin_top = -84.2
+margin_right = -417.2
+margin_bottom = 415.8
 custom_styles/panel = ExtResource( 18 )
 
 [node name="Play" type="Button" parent="UserInterface/Panel2"]
