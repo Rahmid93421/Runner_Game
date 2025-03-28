@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/main_menu/3d_maps/MapGeneration.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/main_menu/Camera_Movement.gd" type="Script" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://assets/misc/fonts/font_resource.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/button_resource.tres" type="StyleBox" id=6]
 [ext_resource path="res://scenes/main_menu/ChooseUsernamePanel.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
+outline_size = 32
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 4 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "IntroMenu"
@@ -254,6 +262,19 @@ script = ExtResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.572549 )
+
+[node name="Branding" type="RichTextLabel" parent="CanvasLayer"]
+anchor_left = 0.072
+anchor_top = 0.871
+anchor_right = 0.937
+anchor_bottom = 1.0
+margin_left = 0.199997
+margin_top = -0.600098
+margin_right = -0.300049
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]GAME CREATED ON QUICKGAMEMAKER.COM[/center]"
+text = "GAME CREATED ON QUICKGAMEMAKER.COM"
 
 [node name="Title" type="RichTextLabel" parent="CanvasLayer"]
 anchor_left = 0.073

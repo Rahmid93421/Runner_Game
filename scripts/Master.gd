@@ -105,6 +105,10 @@ func _getUserName():
 func _getCoins():
 	return dataDict[1]
 	
+func _setCoins(coins):
+	dataDict[1] += coins
+	_saveToFile()
+	
 func _useEnergyBottle():
 	dataDict[3]['energybottle'] -= 1
 	

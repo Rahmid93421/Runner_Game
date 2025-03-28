@@ -32,8 +32,11 @@ func _process(_delta):
 	$UserInterface/RichTextLabel.bbcode_text = "[center]" + str(Engine.get_frames_per_second()) + "[/center]"
 
 func _on_Play_pressed():
-	actionPressed = "play"
-	animationNode.play("OutroAnim")
+	if(energyAvailable <= 0):
+		animationNode.play("FadeIn")
+	else:
+		actionPressed = "play"
+		animationNode.play("OutroAnim")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "OutroAnim"):
@@ -88,3 +91,6 @@ func _on_Item3_mouse_entered():
 func _on_AnimationPlayer_animation_started(anim_name):
 	if(anim_name == "RealOutro"):
 		parentNode._fadeOutMusicMenu()
+
+func _on_Button_buy_energy_pressed():
+	pass # Replace with function body.

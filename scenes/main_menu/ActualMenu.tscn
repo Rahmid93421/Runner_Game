@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/main_menu/PlayerPlatform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/models/player/new/idle.glb" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/misc/panels_themes/UsernameRichTextLabel.tres" type="DynamicFont" id=16]
 [ext_resource path="res://assets/misc/fonts/PowerLevelRichTextLable.tres" type="DynamicFont" id=17]
 [ext_resource path="res://assets/misc/panels_themes/menu_buttons.tres" type="StyleBox" id=18]
+[ext_resource path="res://assets/button_resource.tres" type="StyleBox" id=19]
 
 [sub_resource type="DynamicFont" id=10]
 size = 32
@@ -25,6 +26,230 @@ outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "FadeIn"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel3:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -402.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel3:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -232.4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel3:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 402.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel3:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 234.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Panel3/Button2:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel3/Button:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Panel3/Button:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Panel3/Button2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MakeUIUnavailable:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "FadeOut"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Panel3:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -402.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel3:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -232.4, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Panel3:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 402.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Panel3:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 234.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Panel3/Button:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Panel3/Button2:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Panel3/Button:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Panel3/Button2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MakeUIUnavailable:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "IntroAnim"
@@ -134,6 +359,114 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Panel3:margin_left")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Panel3:margin_top")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Panel3:margin_right")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Panel3:margin_bottom")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Panel3/Button2:rect_min_size")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Panel3/Button:rect_min_size")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Panel3/Button2:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Panel3/Button:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("MakeUIUnavailable:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ false ]
 }
 
@@ -494,6 +827,138 @@ tracks/16/keys = {
 "update": 1,
 "values": [ 0.299988 ]
 }
+tracks/17/type = "value"
+tracks/17/path = NodePath("Panel3:margin_left")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -402.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Panel3:margin_top")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ -232.4 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Panel3:margin_right")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 402.0 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Panel3:margin_bottom")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 234.0 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Panel3/Button2:rect_min_size")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Panel3/Button:rect_min_size")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Panel3/Button2:rect_scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("Panel3/Button:rect_scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("Panel3/Button:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Panel3/Button2:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("MakeUIUnavailable:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "RealOutro"
@@ -535,8 +1000,57 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.937255, 0.678431, 0.309804, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.156863, 0.156863, 0.156863, 1 )
+corner_radius_top_left = 35
+corner_radius_top_right = 35
+corner_radius_bottom_right = 35
+corner_radius_bottom_left = 35
+shadow_size = 15
+
+[sub_resource type="DynamicFont" id=15]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 48
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 42
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 7 )
+
 [node name="ActualMenu" type="Node"]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -774.0, 794.0 ],
+"_edit_vertical_guides_": [ 154.0 ]
+}
 
 [node name="Environment" type="Spatial" parent="."]
 
@@ -571,6 +1085,7 @@ directional_shadow_blend_splits = true
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UserInterface"]
+visible = false
 anchor_left = 0.304
 anchor_top = 0.78
 anchor_right = 0.696
@@ -596,10 +1111,10 @@ anchor_left = -0.092
 anchor_top = 0.402
 anchor_right = 0.156
 anchor_bottom = 0.402
-margin_left = -500.0
-margin_top = 559.0
-margin_right = -500.0
-margin_bottom = 1059.0
+margin_left = -417.2
+margin_top = -84.2
+margin_right = -417.2
+margin_bottom = 415.8
 custom_styles/panel = ExtResource( 18 )
 
 [node name="Play" type="Button" parent="UserInterface/Panel2"]
@@ -758,11 +1273,94 @@ scroll_active = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface"]
 autoplay = "IntroAnim"
+anims/FadeIn = SubResource( 17 )
+anims/FadeOut = SubResource( 18 )
 anims/IntroAnim = SubResource( 1 )
 anims/MakePlayerRun = SubResource( 8 )
 anims/OutroAnim = SubResource( 7 )
 anims/RESET = SubResource( 2 )
 anims/RealOutro = SubResource( 9 )
+
+[node name="MakeUIUnavailable" type="ColorRect" parent="UserInterface"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Panel3" type="Panel" parent="UserInterface"]
+anchor_left = 0.5
+anchor_top = 0.513
+anchor_right = 0.5
+anchor_bottom = 0.513
+margin_left = -402.0
+margin_top = -232.4
+margin_right = 402.0
+margin_bottom = 234.0
+rect_pivot_offset = Vector2( 303, 205 )
+custom_styles/panel = SubResource( 11 )
+
+[node name="Button" type="Button" parent="UserInterface/Panel3"]
+visible = false
+anchor_left = 0.083
+anchor_top = 0.727
+anchor_right = 0.494
+anchor_bottom = 0.727
+margin_left = 0.267998
+margin_top = -0.072937
+margin_right = -0.176025
+margin_bottom = 84.9271
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_clip_content = true
+custom_fonts/font = SubResource( 15 )
+custom_styles/hover = ExtResource( 19 )
+custom_styles/pressed = ExtResource( 19 )
+custom_styles/normal = ExtResource( 19 )
+text = "BUY 5 ENERGY"
+clip_text = true
+
+[node name="Button2" type="Button" parent="UserInterface/Panel3"]
+anchor_left = 0.514
+anchor_top = 0.727
+anchor_right = 0.924
+anchor_bottom = 0.727
+margin_left = -0.256012
+margin_top = -0.072937
+margin_right = 0.104004
+margin_bottom = 84.9271
+rect_clip_content = true
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = ExtResource( 19 )
+custom_styles/pressed = ExtResource( 19 )
+custom_styles/normal = ExtResource( 19 )
+text = "WATCH AD"
+clip_text = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UserInterface/Panel3"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.077
+margin_top = 15.0872
+margin_bottom = 98.087
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "[center]failure[/center]"
+text = "failure"
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="UserInterface/Panel3"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.077
+margin_left = 9.0
+margin_top = 131.087
+margin_right = -12.0
+margin_bottom = 261.087
+custom_fonts/normal_font = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[center]Curently your energy level is too low
+BUY 5 ENERGY FOR 500 COINS OR WATCH AN AD[/center]"
+text = "Curently your energy level is too low
+BUY 5 ENERGY FOR 500 COINS OR WATCH AN AD"
+scroll_active = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
@@ -776,3 +1374,4 @@ stream = ExtResource( 14 )
 [connection signal="pressed" from="UserInterface/Panel2/Inventory" to="." method="_on_Inventory_pressed"]
 [connection signal="animation_finished" from="UserInterface/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="UserInterface/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
+[connection signal="pressed" from="UserInterface/Panel3/Button" to="." method="_on_Button_buy_energy_pressed"]

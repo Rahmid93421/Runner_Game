@@ -70,6 +70,7 @@ func _update_coins():
 	
 func _game_over():
 	gameOver = true
+	parentNode._setCoins(coins)
 
 func _load_actual_main_menu():
 	parentNode._load_actual_menu()
