@@ -5,6 +5,7 @@ It includes:
 - infinite world generation
 - shop system
 - inventory system
+- lootbox system (receive random items from boxes)
 - gun system (partially done)
 - in-game currency (partially done)
 
