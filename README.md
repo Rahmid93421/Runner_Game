@@ -8,12 +8,12 @@ It includes:
 - gun system (partially done)
 - in-game currency (partially done)
 
-![Logo]([https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/1.jpg?raw=true])
+![Logo](https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/1.jpg?raw=true)
 
-![Logo]([https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/2.jpg?raw=true])
+![Logo](https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/2.jpg?raw=true)
 
-![Logo]([https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/3.jpg?raw=true])
+![Logo](https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/3.jpg?raw=true)
 
-![Logo]([https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/4.jpg?raw=true])
+![Logo](https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/4.jpg?raw=true)
 
-![Logo]([https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/5.jpg?raw=true])
+![Logo](https://github.com/Rahmid93421/Runner_Game/blob/main/screenshots/5.jpg?raw=true)
